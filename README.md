@@ -11,7 +11,20 @@
 | [docs/01-grok-bot-research.md](docs/01-grok-bot-research.md) | **Grok Bot 公开信息调研报告**（13 章）。覆盖功能能力、使用场景、交互流程、界面布局、信息架构、视觉风格、导航结构、设置项、权限与限制、优缺点、用户反馈，末章为来源与可信度表。 | 想知道"Grok Bot 到底是个什么东西" |
 | [docs/02-dsh-benchmark.md](docs/02-dsh-benchmark.md) | **DeepSeek Harness × Grok Bot 对标分析**（5 章）。7 个能力域逐条判定复用等级（✅ 直接复用 / 🔶 需装配 / 🛠 需新建 / 🚫 不做），给出界面与布局的槽位级映射、P0/P1/P2 功能优先级与依赖顺序、以及一个 bundle 五个落地单元的结合建议。 | 想知道"该做什么、按什么顺序做" |
 | [docs/03-excluded-cloud-pc-requirements.md](docs/03-excluded-cloud-pc-requirements.md) | **排除"云电脑"后的对标范围与可执行需求列表**（5 章 + 2 附录）。给出"云电脑"的四问判定树、逐能力排除边界、**19 条带验收标准的需求**、五批次实施路线。 | 想知道"具体要交付什么、怎么验收" |
-| [docs/04-dsh-plugin-plan.md](docs/04-dsh-plugin-plan.md) | **DeepSeek Harness 插件开发方案**（10 章 + 5 附录，**v1.1**）。给出可落地、有竞争力的 **Agent Ops 运行台**方案：一个 bundle **七个 Host 单元 / 八个 Client 注册点 / 24 条带验收标准的需求**（v1.0 的 16 条 + v1.1 增补的 8 条）、**M0–M5 六个里程碑**、五层验证方案、13 条风险与显式不做清单。**§9 专章回应多 Bot 群聊 / 每 Bot 独立角色·记忆·上下文·权限 / 主 Bot 统筹与升级审批 / 零代码流程学习 / 主动任务感知 / 8 类开箱角色**，含 6 条硬约束与逐条源码级证据。 | 想知道"具体怎么造、几周能交付" |
+| [docs/04-dsh-plugin-plan.md](docs/04-dsh-plugin-plan.md) | **DeepSeek Harness 插件开发方案**（10 章 + 5 附录 + **§14 实现记录**，**v1.1**）。给出可落地、有竞争力的 **Agent Ops 运行台**方案：一个 bundle **七个 Host 单元 / 八个 Client 注册点 / 24 条带验收标准的需求**（v1.0 的 16 条 + v1.1 增补的 8 条）、**M0–M5 六个里程碑**、五层验证方案、13 条风险与显式不做清单。**§9 专章回应多 Bot 群聊 / 每 Bot 独立角色·记忆·上下文·权限 / 主 Bot 统筹与升级审批 / 零代码流程学习 / 主动任务感知 / 8 类开箱角色**，含 6 条硬约束与逐条源码级证据。**§14 是落地后的实测记录：24 条需求的覆盖表、六条与方案文本的偏离、三条宿主事实、五层验证状态。** | 想知道"具体怎么造、几周能交付" |
+
+## 实现状态（2026-11-18）
+
+方案 v1.1 的 **24 条需求已全部落地**为可安装的插件包 [`plugin/`](plugin/)（`@local/dsh-agent-ops` v0.7.0）：
+
+| 项 | 状态 |
+|---|---|
+| 单测 | `cd plugin && node --test` → **157 项全绿** |
+| 打包与安装 | `npm pack` → `dsh plugin --profile web add` → `--dump-config` 出现插件行与 8 条 preset 行 |
+| 界面 | Web UI 起来后右侧栏一个 tab、七个纵切页全部渲染，控制台零报错（`_verify/shot16.js`） |
+| 与方案文本的偏离 | 6 条，逐条记录在 [docs/04 §14.2](docs/04-dsh-plugin-plan.md) |
+
+开发约定、架构红线与宿主契约见 [AGENTS.md](AGENTS.md)。
 
 ## 四份文档的关系
 

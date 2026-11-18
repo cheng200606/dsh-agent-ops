@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "title": "Agent Ops Console",
+    "description": "Approval audit timeline, fences and high-risk classification: one read-only column for who approved what and what was blocked.",
+    "detail": "docs/DETAIL.md"
+  },
+  "panel": "Agent Ops",
+  "title": "Agent Ops Console",
+  "subtitle": "Read-only audit surface for approvals and fences",
+  "empty": "No approvals or fence records in this session yet.",
+  "loading": "Loading…",
+  "unsupported": "This DSH build exposes no session projection reader; the console degrades to an empty read-only state.",
+  "filters": {
+    "all": "All",
+    "approval": "Approvals",
+    "fence": "Fences"
+  },
+  "counters": {
+    "asked": "Requests",
+    "allowed": "Allowed",
+    "denied": "Denied",
+    "blocked": "Fenced"
+  },
+  "outcome": {
+    "allowed-once": "Allowed",
+    "rejected": "Rejected",
+    "cancelled": "Cancelled",
+    "unavailable": "Unanswered",
+    "pending": "Pending"
+  },
+  "columns": {
+    "time": "Time",
+    "tool": "Tool",
+    "event": "Event",
+    "outcome": "Outcome",
+    "reason": "Reason"
+  },
+  "sessions": "Sessions",
+  "refresh": "Refresh",
+  "config": "Config",
+  "fenceOn": "Fence enabled",
+  "fenceOff": "Fence disabled (observe only)",
+  "docs": "Docs"
+}

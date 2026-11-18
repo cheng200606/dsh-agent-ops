@@ -1,0 +1,67 @@
+Grok Bot | Grok Docs 
+
+English Docs 
+API 
+Docs REST Reference 
+
+Grok Build Grok Bot Grok X Subscription English 中文 English 
+
+Search ⌘ K API Console 
+Products
+Grok 
+Status
+Operational 
+Resources
+llms.txt Discord Email support Terms & policies 
+
+Contact us pulengba@gmail.com 
+
+Get Started
+Overview 
+Get Started 
+Use cases 
+How Grok Bot works 
+Changelog 
+
+Use Grok Bot
+Message and collaborate 
+Files and results 
+Use the computer and apps 
+Create and manage Bots 
+Skills and routines 
+Approvals and privacy 
+Vault and secure sign-in 
+Shared Bots 
+Grok Bot for Mobile 
+Add a Bot to Slack 
+Tag @bot on X 
+
+Teams and enterprises
+Admin overview 
+Deploy to your organization 
+Identity and access 
+Private networks 
+TLS-inspecting proxies 
+Manage computers 
+Inference hooks 
+Security 
+Security FAQ 
+
+Reference
+Settings and notifications 
+Troubleshooting 
+FAQ 
+
+Get started 
+Grok Bot 
+Copy for LLM Copying... Copied Copy failed View as Markdown 
+
+Grok Bot is your proactive AI teammate. It can help you build a deck, run a marketing campaign, book a dinner reservation, or keep your calendar in sync with all of your schedule changes.
+It's an agent with access to a real computer in the cloud, so it can do all the things you can.
+Get started See use cases 
+Grok Bot for teams 
+
+An entire team of bots 
+Bots can take on big tasks that might otherwise take hours or days. They work across apps, websites, and tools, and with one another: multiple Bots can work together, like a real team.
+Chat is the main interface for Grok Bot, but you can also start a voice call or send a voice note. Bots work best when you connect them with the tools you use every day: Slack, Notion, Drive, Teams, and more. Grok Bot supports custom tooling, so it can interact with any MCP or API.
+<path fill="#000" fill-rule="evenodd" d="M214.701.796 21.056 15.056C5.442 16.41 0 26.597 0 38.808V250.61c0 9.516 3.392 17.649 11.549 28.52l45.52 59.06c7.477 9.511 14.273 11.545 28.55 10.864l224.879-13.579c19.02-1.351 24.46-10.183 24.46-25.117V72.075c0-7.72-3.054-9.95-12.059-16.523-.495-.362-1.008-.737-1.54-1.126L259.545 10.98C244.599.123 238.481-1.243 214.701.796ZM90.718 68.166c-18.36 1.24-22.532 1.522-32.958-6.948L31.246 40.174c-2.704-2.721-1.348-6.116 5.441-6.79l186.168-13.578c15.623-1.36 23.774 4.08 29.892 8.829l31.931 23.083c1.36.676 4.751 4.744.673 4.744L93.088 68.007c-.815.054-1.604.108-2.369.16h-.001ZM69.303 308.318V106.024c0-8.823 2.718-12.9 10.866-13.584l220.808-12.894c7.489-.679 10.88 4.076 10.88 12.894v200.936c0 8.832-1.362 16.31-13.596 16.982L86.964 322.584c-12.228.673-17.66-3.394-17.66-14.266Zm208.591-191.442c1.355 6.116 0 12.226-6.126 12.913l-10.182 2.028v149.347c-8.839 4.751-16.99 7.467-23.782 7.467-10.875 0-13.598-3.397-21.744-13.575l-66.593-104.543v101.149l21.072 4.755c0 0 0 12.214-17.001 12.214l-46.868 2.718c-1.362-2.718 0-9.501 4.754-10.861l12.23-3.389V143.362l-16.982-1.361c-1.361-6.115 2.031-14.933 11.549-15.618l50.28-3.389 69.303 105.904v-93.686l-1

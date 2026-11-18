@@ -1,0 +1,276 @@
+Grok Bot (2026): What It Is, What It Costs, How It Works
+ 
+Skip to content
+ 
+Solutions
+AI Training 1-on-1
+Personal 3-hour half-day, in Amsterdam-Zuid or via Teams
+Automate your work with Claude
+3h training or a full implementation day together
+Build a website with AI
+3h 1-on-1 session plus a week of support
+1-on-1 AI Coaching
+Coaching within a 1-on-1 training or implementation day.
+AI Automation
+Tasks that AI prepares or takes over
+AI Consulting
+2-week advisory engagement to concrete roadmap
+Industries
+Small Business
+AI for small and medium enterprises
+E-commerce
+AI agents for online stores
+Customer Service
+Automate your customer service with AI
+Hospitality
+AI for restaurants and hotels
+Real Estate
+AI for real estate agents
+Finance
+AI for CFOs and finance teams
+Government
+AI for municipalities and public organisations
+Construction
+AI agents for contractors and installers
+Legal
+AI for law firms and notaries
+Education
+AI for schools and education institutions
+Retail
+AI for physical stores and retail chains
+Insurance
+AI for insurers and brokers
+About us
+Pricing
+Blog
+NL
+Contact us
+   
+Home
+Resources
+What Is Grok Bot? xAI's Always-On Agent (2026)
+AI Agents
+8 min
+ 
+read
+6 November 2026
+By
+ 
+Tarik Eraslan
+, AI coach & AI trainer
+What Is Grok Bot? xAI's Always-On Agent (2026)
+Grok Bot is xAI's always-on agent with its own cloud computer. What it does, what it costs, the role of Cursor and what it means for the Netherlands.
+In short
+Grok Bot is xAI's always-on agent, in beta since 11 August 2026. Your Bots share their own Linux computer in the cloud and keep working when your laptop is closed. There is no separate subscription: Grok Bot is included in X Premium ($30 per month), Super and Ultra, among others, and in paid Cursor plans. The app has no country restrictions, but the computers run in the United States (as of 6 November 2026).
+Contents
+What is Grok Bot?
+How does Grok Bot work?
+What does Cursor have to do with it?
+What does Grok Bot cost?
+Can you use Grok Bot in the Netherlands?
+How safe is Grok Bot?
+Grok Bot or GrokBot: the agent and the crawler
+What does Grok Bot mean for your business?
+Frequently asked questions
+Want to learn to work well with agents?
+What is Grok Bot?
+Grok Bot is an agent from xAI that carries out tasks on its own computer in the cloud. xAI calls each Bot an AI teammate with its own name. You give a Bot a task in the app, in Slack or on X, and it keeps working when your laptop is closed.
+xAI launched Grok Bot as a beta on 11 August 2026, in the 
+announcement on x.ai
+. A version for businesses followed on 3 September. xAI has been 
+part of SpaceX
+) since February 2026 and now goes by the name SpaceXSI.
+Grok Bot is part of a new wave of always-on agents, together with 
+ChatGPT dots
+ from OpenAI and 
+Claude Duet
+ from Anthropic. If you want to get the concept clear first, read 
+what an AI agent is
+.
+How does Grok Bot work?
+One computer in the cloud for all your Bots
+All your Bots share one dedicated computer in the cloud, with a browser, a terminal and a file system. That computer runs Linux and, according to xAI, is physically isolated from other users. Each Bot does one browser task at a time. A computer that sits idle for a while goes to sleep; your files stay where they are.
+Signing in to your apps
+Grok Bot uses an integration when one exists, and otherwise operates the browser itself. xAI describes this as working on platforms without a proper API. According to the 
+documentation
+, integrations include:
+Gmail, Outlook and Google Calendar
+Google Drive, Docs, Sheets and Slides, and SharePoint
+Slack, Notion, Zoom, Linear and X
+Passwords come from its own vault, from a connected password manager such as 1Password or from a secure form. When signing in requires SSO, passkeys or a captcha, the Bot hands control back to you.
+Where do you talk to a Bot?
+You talk to a Bot in the desktop app for macOS, Windows and Linux, in the app for iOS and Android, in group conversations, in Slack and in X Chat. On X you can tag @bot under a post, but that does not work yet for accounts in the EU, the UK and Norway.
+Which model does Grok Bot use?
+xAI does not say. According to the 
+FAQ
+, each task goes to one of xAI's own models or to a model from another provider. You cannot see which model carries out a task. The FAQ even names Claude Opus 5.5 as an example of such another model. xAI names no specific Grok version as the model behind Grok Bot.
+What does Cursor have to do with it?
+More than you might expect. Cursor is an AI coding environment. You sign in to Grok Bot with a Cursor account and your usage runs through that account. Your Bots' computers run in Cursor's cloud, and businesses manage Grok Bot in the Cursor dashboard. If you delete Grok Bot, you delete your Cursor account.
+As a result, your privacy settings, retention periods and agreements on training follow Cursor's terms.
+What does Grok Bot cost?
+There is no separate subscription for Grok Bot. You get access through another subscription:
+Route
+Grok Bot included?
+X Free, X Plus ($8 per month)
+No
+X Premium ($30 per month)
+Yes
+X Super ($100) and X Ultra ($200 per month)
+Yes
+Paid Cursor plans and Cursor Teams
+Yes
+Linked SuperGrok or X Premium+ account, or a Grok Business seat
+Yes
+SuperGrok Lite
+No
+The prices are excluding tax and are listed only in dollars on 
+xAI's pricing page
+. There is also a trial: a credit that is valid for seven days. A separate spending limit for Grok Bot does not exist (as of 6 November 2026).
+Note: xAI has changed the list of subscriptions a few times since launch. On launch day, only SuperGrok Heavy, Cursor Ultra and Cursor Teams Premium had access. That is why older articles about Grok Bot mention different subscriptions from the current ones.
+Can you use Grok Bot in the Netherlands?
+In xAI's documentation, the Grok Bot app itself has no country restrictions. Two things do matter for Dutch businesses:
+The computers are in the US.
+ According to the 
+security page
+, all Grok Bot computers run in the United States. So everything a Bot reads and stores sits on American servers.
+Tagging on X does not work in the EU.
+ The feature that lets you call @bot under a post on X is not yet available for accounts in the EU.
+The 
+comparison of Claude Duet, ChatGPT dots and Grok Bot
+ shows the three side by side.
+How safe is Grok Bot?
+Approval per action.
+ For a risky action you get a card with "Allow once", "Always allow" or "Deny". A request that comes in while you are away expires after about 30 minutes.
+Auto Review.
+ A separate model checks risky actions. xAI itself adds that it does not check every side effect.
+Never more rights than you.
+ A Bot works as the signed-in user and never gets more access than that person has. The model does not get to see saved passwords.
+Logs for Enterprise only.
+ Audit logs and recording of actions are only available in Enterprise; recording is off by default.
+About your data: with Privacy Mode turned on in Cursor, xAI does not use your data for training. If you delete your account, your data is erased within 30 days. Deleting a Bot does not erase the files and browser sessions on the computer.
+xAI also says itself that the measures reduce the risk of prompt injection without removing it. Prompt injection is an attack where a web page or email contains hidden instructions that try to mislead an agent.
+Grok Bot or GrokBot: the agent and the crawler
+If you search for "GrokBot" as one word, you also come across something else: a crawler that reads websites for xAI. A crawler is software that fetches web pages automatically, for example to train AI models.
+xAI itself publishes nothing about that crawler. xAI's documentation has no page with a user agent or an explanation of robots.txt, the file you use to deny crawlers access to your site. The names GrokBot, xAI-Grok and GrokBot/1.0 only come from external overviews, such as the one from 
+Promptwatch
+, and those contradict each other. xAI's privacy policy does say that it uses information that is publicly available on the internet to train models (as of 6 November 2026).
+If you want to know whether xAI reads your site, check your website's server logs. A rule in robots.txt for GrokBot is no guarantee as long as xAI itself does not confirm which name the crawler uses.
+What does Grok Bot mean for your business?
+Grok Bot can work in your email, documents and browser. For a Dutch business, that means:
+Your data goes to the US.
+ If you connect a mailbox with customer data, that data sits on American servers. Under the GDPR, the European privacy law, you remain responsible for that personal data. Also read 
+what to arrange for AI and privacy
+.
+The terms are Cursor's.
+ Check the privacy settings of your Cursor account before you connect anything, and turn on Privacy Mode.
+Sort it out internally.
+ If employees work with an agent like Grok Bot, that falls under the 
+AI literacy obligation
+ in Article 4 of the EU AI Act, which has applied since 2 February 2025. Set out in an 
+AI policy
+ which apps an agent may use. A 
+one-on-one AI training
+ is one such measure. This is general information, not legal advice.
+If you would rather have an agent that handles one fixed process for you, such as quotes or customer questions, you can 
+have an AI agent built
+.
+Frequently asked questions
+What is Grok Bot?
+Grok Bot is xAI's always-on agent. Your Bots work on their own computer in the cloud, with a browser and terminal, and keep going when your laptop is closed. You talk to them in the app, in Slack or in X Chat.
+What does Grok Bot cost?
+There is no separate subscription. Grok Bot is included in X Premium ($30 per month), X Super ($100) and X Ultra ($200), in paid Cursor plans and in Grok Business. The prices are excluding tax (as of 6 November 2026).
+Can I use Grok Bot in the Netherlands?
+In xAI's documentation, the app has no country restrictions. The Grok Bot computers do run in the United States, and tagging @bot on X does not work yet for accounts in the EU.
+Why do I need a Cursor account for Grok Bot?
+Grok Bot runs on the infrastructure of Cursor. You sign in with a Cursor account, your usage runs through that account and Cursor's privacy settings apply.
+Which model does Grok Bot run on?
+xAI does not disclose this. Each task goes to one of xAI's own models or to a model from another provider, without you seeing which one.
+Can I block the GrokBot crawler?
+xAI publishes no official name or documentation for a crawler. That makes a robots.txt rule for GrokBot no guarantee. Check your server logs to see which traffic from xAI visits your site.
+Want to learn to work well with agents?
+An agent like Grok Bot is only useful when you know which tasks to give it and which access to grant it. In the 
+one-on-one AI training
+ you set up AI tools for your own work in a single half-day session: Advanced for €449 excluding VAT, or Specialist for €579 excluding VAT if you want to work with agents and integrations. After the training you get a 30-minute follow-up call for the questions that come up once your agent is at work.
+Written by
+Tarik Eraslan
+AI coach & AI trainer and founder of AI Agent. Helps entrepreneurs put AI to work in their own business through one-on-one training and coaching.
+LinkedIn
+More about Tarik
+More reading
+AI Agents
+8 min
+ 
+read
+Claude Duet vs ChatGPT dots vs Grok Bot in the Netherlands (2026)
+Claude Duet, ChatGPT dots and Grok Bot side by side: what they do, what they cost, where your data is and which you can use in the Netherlands today.
+Read more
+AI Agents
+7 min
+ 
+read
+What Is Claude Duet? Anthropic's Always-On Agent (2026)
+Claude Duet is Anthropic's agent that watches your email and calendar for you. What it does, what it costs and when you can use it in the Netherlands.
+Read more
+AI Agents
+8 min
+ 
+read
+What Are ChatGPT dots? OpenAI's Always-On Agents (2026)
+ChatGPT dots are OpenAI agents that keep working between conversations. What a dot does, what it costs and who can already use it in the Netherlands.
+Read more
+Ready to get started with AI?
+Learn it in a 3-hour 1-on-1 training, from €449 excl. VAT, or set up Claude or ChatGPT together on an implementation day.
+I want to learn to work with AI
+Set it up together on an implementation day
+Not sure where you stand?
+ 
+Take the free AI literacy test
+AI training, coaching and
+implementation for entrepreneurs.
+Services
+AI for businesses
+AI Automation
+AI Consulting
+AI Consultant
+AI Agency
+AI Training 1-on-1
+Use cases
+Customer Service
+Lead generation
+AI Phone Agent
+Content creation
+Data analysis
+Process automation
+Automating administration
+Industries
+E-commerce
+Small Business
+Real Estate
+Hospitality
+Construction
+Retail
+Insurance
+Legal
+Education
+Learn
+Build a website with AI
+Automate your work with Claude
+1-on-1 AI Coaching
+AI Video Training
+Academy
+AI Literacy Test
+Resources
+Company
+About us
+Contact
+Privacy policy
+Cookie policy
+Terms of service
+Data Processing Agreement
+Compliance overview
+Responsible disclosure
+hello@aiagent.nl
+© 2026 AI Agent. All rights reserved.
+Tarik Eraslan · Chamber of Commerce 42196909 · VAT NL005574854B25
+               
+self.__next_f.push([1,"19:[\"$\",\"section\",null,{\"className\":\"pb-16\",\"children\":[\"$\",\"div\",null,{\"className\":\"mx-auto max-w-2xl px-6\",\"children\":[[\"$\",\"nav\",null,{\"className\":\"mb-10 rounded-2xl border border-[#2D1B0E]/[0.06] bg-[#F7EDE3]/50 p-6\",\"aria-label\":\"Contents\",\"children\":[[\"$\",\"p\",null,{\"className\":\"font-sans-display text-xs font-bold uppercase tracking-widest text-[#6B4226]/50\",\"children\":\"Contents\"}],[\"$\",\"ol\",null,{\"className\":\"mt-3 space-y-1.5\",\"children\":[[\"$\",\"li\",\"what-is-grok-bot\",{\"children\":[\"$\",\"a\",null,{\"href\":\"#what-is-grok-bot\",\"className\":\"font-sans-display text-sm text-[#6B4226]/75 transition-colors hover:text-[#D4921C]\",\"children\":\"What is Grok Bot?\"}]}],[\"$\",\"li\",\"how-does-grok-bot-work\",{\"children\":[\"$\",\"a\",null,{\"href\":\"#how-does-grok-bot-work\",\"className\":\"font-sans-display text-sm text-[#6B4226]/75 transition-colors hover:text-[#D4921C]\",\"children\":\"How does Grok Bot work?\"}]}],[\"$\",\"li\",\"what-does-cursor-have-to-do-with-it\",{\"children\":[\"$\",\"a\",null,{\"href\":\"#what-does-cursor-have-to-do-with-it\",\"className\":\"font-sans-display text-sm text-[#6B4226]/75 transition-colors hover:text-[#D4921C]\",\"children\":\"What does Cursor have to do with it?\"}]}],[\"$\",\"li\",\"what-does-grok-bot-cost\",{\"children\":[\"$\",\"a\",null,{\"href\":\"#what-does-grok-bot-cost\",\"className\":\"font-sans-display text-sm text-[#6B4226]/75 transition-colors hover:text-[#D4921C]\",\"children\":\"What does Grok Bot cost?\"}]}],[\"$\",\"li\",\"can-you-use-grok-bot-in-the-netherlands\",{\"children\":[\"$\",\"a\",null,{\"href\":\"#can-you-use-grok-bot-in-the-netherlands\",\"className\":\"font-sans-display text-sm text-[#6B4226]/75 transition-colors hover:text-[#D4921C]\",\"children\":\"Can you use Grok Bot in the Netherlands?\"}]}],[\"$\",\"li\",\"how-safe-is-grok-bot\",{\"children\":[\"$\",\"a\",null,{\"href\":\"#how-safe-is-grok-bot\",\"className\":\"font-sans-display text-sm text-[#6B4226]/75 transition-colors hover:text-[#D4921C]\",\"children\":\"How safe is Grok Bot?\"}]}],[\"$\",\"li\",\"grok-bot-or-grokbot-the-agent-and-the-crawler\",{\"children\":[\"$\",\"a\",null,{\"href\":\"#grok-bot-or-grokbot-the-agent-and-the-crawler\",\"className\":\"font-sans-display text-sm text-[#6B4226]/75 transition-colors hover:text-[#D4921C]\",\"children\":\"Grok Bot or GrokBot: the agent and the crawler\"}]}],[\"$\",\"li\",\"what-does-grok-bot-mean-for-your-business\",{\"children\":[\"$\",\"a\",null,{\"href\":\"#what-does-grok-bot-mean-for-your-business\",\"className\":\"font-sans-display text-sm text-[#6B4226]/75 transition-colors hover:text-[#D4921C]\",\"children\":\"What does Grok Bot mean for your business?\"}]}],[\"$\",\"li\",\"frequently-asked-questions\",{\"children\":[\"$\",\"a\",null,{\"href\":\"#frequently-asked-questions\",\"className\":\"font-sans-display text-sm text-[#6B4226]/75 transition-colors hover:text-[#D4921C]\",\"children\":\"Frequently asked questions\"}]}],[\"$\",\"li\",\"want-to-learn-to-work-well-with-agents\",{\"children\":[\"$\",\"a\",null,{\"href\":\"#want-to-learn-to-work-well-with-agents\",\"className\":\"font-sans-display text-sm text-[#6B4226]/75 transition-colors hover:text-[#D4921C]\",\"chi

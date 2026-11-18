@@ -1,0 +1,366 @@
+Message and collaborate | Grok Docs 
+
+English Docs 
+API 
+Docs REST Reference 
+
+Grok Build Grok Bot Grok X Subscription English 中文 English 
+
+Search ⌘ K API Console 
+Products
+Grok 
+Status
+Operational 
+Resources
+llms.txt Discord Email support Terms & policies 
+
+Contact us pulengba@gmail.com 
+
+Get Started
+Overview 
+Get Started 
+Use cases 
+How Grok Bot works 
+Changelog 
+
+Use Grok Bot
+Message and collaborate 
+Files and results 
+Use the computer and apps 
+Create and manage Bots 
+Skills and routines 
+Approvals and privacy 
+Vault and secure sign-in 
+Shared Bots 
+Grok Bot for Mobile 
+Add a Bot to Slack 
+Tag @bot on X 
+
+Teams and enterprises
+Admin overview 
+Deploy to your organization 
+Identity and access 
+Private networks 
+TLS-inspecting proxies 
+Manage computers 
+Inference hooks 
+Security 
+Security FAQ 
+
+Reference
+Settings and notifications 
+Troubleshooting 
+FAQ 
+
+Use Grok Bot 
+Message and collaborate 
+Copy for LLM Copying... Copied Copy failed View as Markdown 
+
+Grok Bot is designed to feel like messaging a teammate. Keep requests natural,
+but make the outcome and the decision boundary explicit: what the Bot may
+change, and where it must stop for you. 
+Message a Bot 
+Open a Bot from the sidebar and type a message. You can:
+Paste text, links, and images
+Attach local files
+Dictate into the composer
+Start a voice chat
+Play a voice memo a Bot sent
+Ask for a saved skill by name
+Mention a Bot, group, routine, or app with @ 
+Reply to a specific message
+React to a message
+Send another instruction while work is in progress
+The transcript shows tool activity, computer use, created files, questions,
+approval requests, and voice memos alongside normal messages.
+Dictate a message 
+Voice typing turns your speech into text in the composer. You read it, edit it,
+and send it like any other message, and the Bot replies in text.
+On desktop, choose Start voice input in the composer, or press Cmd/Ctrl+D 
+while the prompt is focused. You can also hold the keys while you talk.
+On iPhone and Android, use Start dictation in the composer. Stop dictation
+before you start a voice chat. See Grok Bot for Mobile .
+Play a voice memo 
+A Bot can reply with a voice memo in the conversation. Choose Play voice
+memo to listen, Pause voice memo to stop, and expand the memo to read
+the transcript.
+Start a voice chat 
+A voice chat is a live spoken conversation with one Bot: the Bot answers out
+loud and keeps listening until you hang up. Voice chat works in the desktop app
+and the phone app.
+Open the chat with the Bot and leave the composer empty.
+Choose Start voice chat , the waveform button in the composer.
+Allow microphone access if your computer or phone asks.
+The call shows Connecting… on desktop or Calling… on the phone, then the
+Bot starts talking. Start voice chat shows only when the composer is empty;
+if the composer is empty and you still don't see it, update Grok Bot. While you
+are on the line, the app shows Voice chat , and on desktop the sidebar can
+show Voice chat in progress .
+During a call you can Mute or Unmute your microphone, Hang up , or
+choose Show transcript to read along. In a call with your own Bot, Show
+settings changes the Voice , the Speed , and the Language ;
+Auto-detect picks the language from what you say. You can open other chats
+while the call runs; on desktop, choose Return to the voice chat to go back.
+Only one voice chat runs at a time, so starting another asks End the current
+voice chat? ; choose End and Chat to switch.
+Voice chat works with one Bot at a time, not in group chats; open that Bot's
+own chat to start a call. On desktop you can also voice chat with a teammate's
+shared Bot from your own chat with it.
+If the connection drops, Grok Bot tries to reconnect on its own first, so a
+short drop usually picks back up without you doing anything. If it can't, the
+call ends with Voice chat failed , and the notice may say Connection
+lost , No connection , or The call ended unexpectedly . Choose
+Dismiss , check your internet connection, and choose Start voice chat 
+again.
+If Grok Bot says microphone access was denied, allow it to use the microphone in
+your system settings. If it says no microphone was found, connect one and try
+again. To choose which microphone the desktop app uses, open Settings and
+pick one under Microphone .
+When the call ends, the conversation includes a Voice chat card with the
+call's length; open it to read the full transcript. If the call left work to
+do, the Bot may follow up in the chat with next steps or results. Grok Bot may
+ask How was the call? ; choose Good or Bad to send feedback.
+Review a draft before it is sent 
+When a Bot prepares an email or Slack message for you, the conversation can
+show an editable draft. Review the recipients and body, then choose Send ,
+or Send message for a Slack draft in the desktop app. Choose Discard to
+drop the draft.
+Bots draft outgoing messages for your review by default. A draft card shows
+Needs approval . If you'd rather have a Bot send without preparing drafts,
+open that menu on one of its drafts and choose Disable drafts for Bot . The
+Bot then sends directly, subject to your
+Auto Review 
+settings. The choice applies to that Bot only, and only its owner sees it; it
+isn't offered in group chats. Email from the Bot's own
+address that you
+didn't request in chat, such as email from a routine, always waits as a draft. To get
+drafts back, choose Needs approval on a draft card or ask the Bot. If the
+change doesn't save, the card shows Couldn't save. Try again. ; choose
+Retry .
+Redirect work in progress 
+Send a new message when priorities change. A direct message from you takes
+priority over background work and can redirect the current turn.
+Send a direct “Stop now” message when work should end immediately. This does not
+undo actions the Bot already completed.
+Chat in X Chat 
+You can also chat with your Bots in X Chat, in the X app on iOS and Android and
+on x.com. They're the same Bots you use in the Grok Bot app. X Chat support is
+rolling out gradually, so it may not show up for you yet even if your plan
+includes it, and it needs the latest version of the X app.
+You need a plan that includes Grok Bot. On The X
+Subscription , that's Premium , Super , or
+Ultra ; Plus doesn't include Grok Bot. Legacy Cursor plans and linked
+SuperGrok or X Premium+ accounts that include Grok Bot also work. See Grok Bot
+on The X Subscription .
+Your Grok account also needs to be connected to a Cursor account. Connecting
+from X Chat works only for personal accounts. It isn't available when your
+email is on a domain your company manages, your Cursor account is on a team, or
+your Cursor account is on a legacy request-based
+plan .
+If a Cursor account already uses your email, you need to agree before it's
+connected.
+What's happening What to do 
+Your plan doesn't include Grok Bot Choose Premium or higher on The X Subscription. 
+Your Cursor account, or its team, uses Privacy Mode (Legacy) Switch your Cursor account to Privacy Mode. On a team, a team admin changes the team's privacy setting. 
+Your Cursor account is on a legacy request-based plan Grok Bot isn't available on legacy request-based plans. 
+Your email is on a domain your company manages, or your Cursor account is on a team Connecting from X Chat isn't available. Use Grok Bot in the Grok Bot app instead. 
+Your Grok account's email isn't verified Verify your email on Grok, then try again. 
+More than one Cursor account uses your email Contact support with the email address. 
+You've used up your Grok Bot usage See How does Grok Bot usage work? 
+Your Bots don't show up in X Chat Update the X app to the latest version, then quit and reopen it. 
+You see a new Bot instead of your own, or tapping your Bot shows Something went wrong Your X account may be connected to a different Grok account. Follow the steps below. 
+
+X Chat uses the Grok account your X account is connected to. If you have more
+than one Grok account, that may not be the one you use with Grok Bot, and
+trying again doesn't help. To connect your X account to the Grok account you
+use with Grok Bot:
+In a browser, sign in at accounts.x.ai with the Grok
+account you use with Grok Bot.
+In the same browser, sign in to x.com with your X account.
+Open x.com/i/jf/grok/entry . Choose to link
+another account, then allow access for the Grok account you signed in with.
+Quit and reopen the X app, or reload x.com, and open your Bots again.
+If that Grok account is already connected to a different X account, this
+doesn't work. If none of these match, contact
+support with your X handle and the email on your
+Grok account.
+Start a group chat 
+Use a group when several Bots need one shared outcome and visible handoffs.
+You can also add a Bot a teammate shared with you , but
+not alongside Bots that run on your own computer.
+Choose New chat , press Cmd/Ctrl+Shift+N , or open the command palette
+with Cmd/Ctrl+K and choose New group chat .
+In the To: field, add two to six Bots.
+Open the group, then edit its generated name if needed.
+Describe the shared outcome and who owns the next step.
+On iPhone or Android, use + → New Group Chat . Group membership can be
+edited later.
+To rename a group on desktop, right-click it in the sidebar and choose Rename
+chat , or click the group's name at the top of the chat and click the name in
+its details to edit it. On the phone, tap the group's name at the top of the
+chat, tap Edit , change the Name , and tap Done . To change what the
+group is for, tell the Bots in the group.
+Group chats don't have the per-Bot Notifications switch. See Control
+notifications .
+Direct a message 
+Write normally to let the participating Bots decide who should respond.
+Type @ and select a Bot when one teammate owns the request.
+Choose Reply on a Bot's message to direct your answer to that Bot.
+Mention multiple Bots when the request genuinely needs each of them.
+Use @everyone sparingly for a group-wide update.
+Bots can post into the group and pass work among themselves. A useful kickoff
+assigns one owner per stage:
+@Researcher gather the source material and link every claim. @Writer turn the
+findings into a launch draft. @Reviewer check the draft against the sources
+and list only blocking issues. Do not publish anything.
+Your messages in a group can include attachments. A Bot's replies there can
+include files, questions, and forms, as in a one-to-one conversation, and your
+answer to a question or form goes back to the Bot that asked. Approval
+requests, secret and login requests, and email or Slack drafts do not appear in
+a group. Bot-to-group handoff messages are text-only, so a Bot should send an
+image directly to another Bot when that teammate must inspect it.
+Keep replies in the group 
+When you write in a group chat, the Bots answer there. A Bot can also message
+you in its own chat, or message another Bot to hand off work; those messages
+show up in the Bots' own chats, not in the group.
+To keep a Bot's replies in the group, tell it there: “Reply here in the group.
+Don't message me privately about this.” To make it a lasting rule, ask each Bot
+to remember it: “Remember: in group chats, reply in the group.”
+Stop Bots from messaging each other 
+There is no switch for this. Bots message each other to hand off work, and they
+follow your instructions about it.
+Tell the Bots in the chat, for example: “Don't message other Bots. Ask me
+first.”
+To keep the rule, ask each Bot to remember it.
+If a Bot keeps starting new work, open that Bot's chat and ask it to stop.
+To quiet a helper Bot without deleting it, turn off its notifications or hide
+it. Every Bot reply counts toward your usage, including replies in a group and
+messages between Bots, so fewer Bots in a group means fewer replies.
+Let Bots hand work off 
+A Bot can send an asynchronous message to another Bot. The receiving Bot wakes,
+handles the request, and can reply later. You can see the handoff in the
+conversation.
+This is useful when:
+One Bot owns a source system and another owns the deliverable
+A specialist should review a draft
+A blocker belongs to another role
+A long-running job should continue without you coordinating every step
+Ask for a single owner at each stage. Parallel handoffs create duplicate work
+and noisy updates.
+A handoff needs a Bot acting for one person on that turn. Where you talk to it,
+and whether it's a personal Bot or a shared Bot ,
+decide this:
+Bot Where you ask Can it message other Bots? Acting for Where the reply lands 
+Personal Bot The app, or your own Slack DM with it Yes You The app chat, not Slack 
+Personal Bot A Slack channel thread No Nobody, the thread is shared The Bot says it can't do that 
+Shared Bot A Slack channel thread or Slack DM Yes, to that person's own Bots The teammate who mentioned it The same Slack thread 
+
+To hand work between Bots from a Slack channel, share a Bot and add it to Slack.
+A shared Bot has its own Slack app and handle, and anyone in the channel can
+give it work. See How do I add a shared Bot to
+Slack? 
+Use threads and reactions 
+Reply in a thread when feedback applies to one result or one approval request.
+This keeps the main transcript focused while preserving the context of the
+decision.
+Use reactions for lightweight acknowledgement. Use a written reply when the Bot
+needs a changed instruction; a reaction alone should not carry a safety-critical
+decision.
+Find prior work 
+Use the search or command palette to:
+Switch between Bots and groups
+Find prior messages
+Find files, links, and routines
+Open settings and common actions
+Jump back to the matching place in a conversation
+Search availability can vary during rollout. If cross-conversation results are
+not available, open the relevant Bot and use its conversation history.
+Press Cmd/Ctrl+K for the search palette, or Cmd/Ctrl+Shift+F to search
+Bots. The full desktop list is in Keyboard shortcuts .
+Keyboard shortcuts 
+These shortcuts work in the Grok Bot desktop app. Use Cmd on macOS and
+Ctrl on Windows and Linux unless a line says otherwise.
+Jump to / search palette: Cmd/Ctrl+K 
+Search Bots: Cmd/Ctrl+Shift+F 
+New Bot: Cmd/Ctrl+N 
+New group chat: Cmd/Ctrl+Shift+N 
+Show all keyboard shortcuts: Cmd/Ctrl+/ 
+Find in this chat: Cmd/Ctrl+F 
+Compact sidebar: Cmd/Ctrl+B 
+Focus prompt: Cmd/Ctrl+I 
+Add selected text to chat: Cmd/Ctrl+L , which focuses the prompt when
+nothing is selected
+Sidebar Bot 1–9: Cmd/Ctrl+1 through Cmd/Ctrl+9 
+Previous / next Bot: Alt+↑ / Alt+↓ 
+Back / forward in visit history: Cmd/Ctrl+[ / Cmd/Ctrl+] 
+Cycle Bots: Control+Tab / Control+Shift+Tab (always Control, including
+on macOS)
+Connect apps: Cmd/Ctrl+Shift+M or Cmd/Ctrl+Shift+W 
+Toggle Bot settings: Cmd/Ctrl+Shift+, 
+Conversation details: Cmd+Shift+I or Cmd+Alt+B on macOS; Ctrl+Alt+B on
+Windows and Linux
+Send: Enter in the composer, or Cmd/Ctrl+Enter from anywhere
+New line: Shift+Enter 
+Dictate into the composer: Cmd/Ctrl+D while the prompt is focused
+Start voice chat: choose Start voice chat in the composer; there is no
+keybinding
+Open Settings: Cmd/Ctrl+, 
+Zoom in, out, or reset: Cmd/Ctrl+= / Cmd/Ctrl+- / Cmd/Ctrl+0 
+Fullscreen: F11 ; on macOS also Control+Cmd+F 
+To see every shortcut in the app, open the account menu and choose
+Support → Keyboard shortcuts , or press Cmd/Ctrl+/ .
+Keep conversations effective 
+Lead with the result you need, not a detailed imitation of every click.
+Link the source of truth.
+State what the Bot may change and what requires approval.
+Ask for evidence—links, screenshots, or a short action log.
+Correct lasting preferences explicitly.
+Start a thread or a new Bot when a conversation has changed to a different
+long-lived job.
+See Files and results for attachments,
+Skills and routines for repeatable work,
+and Approvals, security, and privacy before
+authorizing external actions.
+
+Last updated: October 29, 2026
+
+On this page Message a Bot 
+Dictate a message 
+Play a voice memo 
+Start a voice chat 
+Review a draft before it is sent 
+Redirect work in progress 
+Chat in X Chat 
+Start a group chat 
+Direct a message 
+Keep replies in the group 
+Stop Bots from messaging each other 
+Let Bots hand work off 
+Use threads and reactions 
+Find prior work 
+Keyboard shortcuts 
+Keep conversations effective 
+
+Copy for LLM Copying... Copied Copy failed 
+
+Grok Docs Translated from the official docs, updated quickly, and aligned with the official experience
+
+Docs
+Overview 
+Quickstart 
+Models 
+Pricing 
+
+About
+About this site 
+Contact us 
+Privacy policy 
+Disclaimer 
+
+Official
+Official docs 
+xAI 
+API Console 
+Status 
+
+self.__next_f.push([1,"19:[\"$\",\"h3\",\"doc-10\",{\"id\":\"start-a-voice-chat\",\"children\":[\"$\",\"a\",null,{\"href\":\"#start-a-voice-chat\",\"children\":[\"Start a voice chat\"]}]}]\n1a:[\"$\",\"p\",\"doc-11\",{\"children\":[\"A voice chat is a live spoken conversation with one Bot: the Bot answers out\\nloud and keeps listening until you hang up. Voice chat works in the desktop app\\nand the phone app.\"]}]\n1b:[\"$\",\"ol\",\"doc-12\",{\"start\":1,\"children\":[[\"$\",\"li\",\"doc-12-0\",{\"children\":[\"Open the chat with the Bot and leave the composer empty.\"]}],[\"$\",\"li\",\"doc-12-1\",{\"children\":[\"Choose \",[\"$\",\"strong\",\"doc-12-1-1\",{\"children\":[\"Start voice chat\"]}],\", the waveform button in the composer.\"]}],[\"$\",\"li\",\"doc-12-2\",{\"children\":[\"Allow microphone access if your computer or phone asks.\"]}]]}]\n1c:[\"$\",\"p\",\"doc-13\",{\"children\":[\"The call shows \",[\"$\",\"strong\",\"doc-13-1\",{\"children\":[\"Connecting…\"]}],\" on desktop or \",[\"$\",\"strong\",\"doc-13-3\",{\"children\":[\"Calling…\"]}],\" on the phone, then the\\nBot starts talking. \",[\"$\",\"strong\",\"doc-13-5\",{\"children\":[\"Start voice chat\"]}],\" shows only when the composer is empty;\\nif the composer is empty and you still don't see it, update Grok Bot. While you\\nare on the line, the app shows \",[\"$\",\"strong\",\"doc-13-7\",{\"children\":[\"Voice chat\"]}],\", and on desktop the sidebar can\\nshow \",[\"$\",\"strong\",\"doc-13-9\",{\"children\":[\"Voice chat in progress\"]}],\".\"]}]\n1d:[\"$\",\"p\",\"doc-14\",{\"children\":[\"During a call you can \",[\"$\",\"strong\",\"doc-14-1\",{\"children\":[\"Mute\"]}],\" or \",[\"$\",\"strong\",\"doc-14-3\",{\"children\":[\"Unmute\"]}],\" your microphone, \",[\"$\",\"strong\",\"doc-14-5\",{\"children\":[\"Hang up\"]}],\", or\\nchoose \",[\"$\",\"strong\",\"doc-14-7\",{\"children\":[\"Show transcript\"]}],\" to read along. In a call with your own Bot, \",[\"$\",\"strong\",\"doc-14-9\",{\"children\":[\"Show\\nsettings\"]}],\" changes the \",[\"$\",\"strong\",\"doc-14-11\",{\"children\":[\"Voice\"]}],\", the \",[\"$\",\"strong\",\"doc-14-13\",{\"children\":[\"Speed\"]}],\", and the \",[\"$\",\"strong\",\"doc-14-15\",{\"children\":[\"Language\"]}],\";\\n\",[\"$\",\"strong\",\"doc-14-17\",{\"children\":[\"Auto-detect\"]}],\" picks the language from what you say. You can open other chats\\nwhile the call runs; on desktop, choose \",[\"$\",\"strong\",\"doc-14-19\",{\"children\":[\"Return to the voice chat\"]}],\" to go back.\\nOnly one voice chat runs at a time, so starting another asks \",[\"$\",\"strong\",\"doc-14-21\",{\"children\":[\"End the current\\nvoice chat?\"]}],\"; choose \",[\"$\",\"strong\",\"doc-14-23\",{\"children\":[\"End and Chat\"]}],\" to switch.\"]}]\n1e:[\"$\",\"p\",\"doc-15\",{\"children\":[\"Voice chat works with one Bot at a time, not in group chats; open that Bot's\\nown chat to start a call. On desktop you can also voice chat with a teammate's\\n\",[\"$\",\"$L11\",\"doc-15-1\",{\"href\":\"/en/grok-bot/shared-bots\",\"children\":[\"shared Bot\"]}],\" from your own chat with it.\"]}]\n1f:[\"$\",\"p\",\"doc-16\",{\"children\":[\"If the connection drops, Grok Bot tries to reconnect on its own first, so a\\nshort drop usually picks back up without you doing anything. If it can't, the\\ncall ends with \",[\"$\",\"strong\",\"doc-16-1\",{\"children\":[\"Voice chat failed\"]}],\", and the notice may say \",[\"$\",\"strong\",\"doc-16-3\",{\"children\":[\"Connection\\nlost\"]}],\", \",[\"$\",\"strong\",\"doc-16-5\",{\"children\":[\"No connection\"]}],\", or \",[\"$\",\"strong\",\"doc-16-7\",{\"children\":[\"The call ended unexpectedly\"]}],\". Choose\\n\",[\"$\",\"strong\",\"doc-16-9\",{\"children\":[\"Dismiss\"]}],\", check your internet connection, and choose \",[\"$\",\"strong\",\"doc-16-11\",{\"children\":[\"Start voice chat\"]}],\"\\nagain.\"]}]\n20:[\"$\",\"p\",\"doc-17\",{\"children\":[\"If Grok Bot says microphone access was denied, allow it to use the microphone in\\nyour system settings. If it says no microphone was found, connect one and try\\nagain. To choose which microphone the desktop app uses, open \",[\"$\",\"strong\",\"doc-17-1\",{\"children\":[\"Settings\"]}],\" and\\npick one under \",[\"$\",\"strong\",\"doc-17-3\",{\"children\":[\"Microphone\"]}],\".\"]}]\n21:[\"$\",\"p\",\"doc-18\",{\"children\":[\"When the call ends, the conversation includes a \",[\"$\",\"strong\",\"doc-18-1\",{\"children\":[\"Voice chat\"]}],\" card with the\\ncall's length; open it to read the full transcript. If the call left work to\\ndo, the Bot may follow up in the chat with next steps or results. Grok Bot may\\nask \",[\"$\",\"strong\",\"doc-18-3\",{\"children\":[\"How was the call?\"]}],\"; choose \",[\"$\",\"strong\",\"doc-18-5\",{\"children\":[\"Good\"]}],\" or \",[\"$\",\"strong\",\"doc-18-7\",{\"children\":[\"Bad\"]}],\" to send feedback.\"]}]\n22:[\"$\",\"h3\",\"doc-19\",{\"id\":\"review-a-draft-before-it-is-sent\",\"children\":[\"$\",\"a\",null,{\"href\":\"#review-a-draft-before-it-is-sent\",\"children\":[\"Review a draft before it is sent\"]}]}]\n23:[\"$\",\"p\",\"doc-20\",{\"children\":[\"When a Bot prepares an email or Slack message for you, the conversation can\\nshow an editable draft. Review the recipients and body, then choose \",[\"$\",\"strong\",\"doc-20-1\",{\"children\":[\"Send\"]}],\",\\nor \",[\"$\",\"strong\",\"doc-20-3\",{\"children\":[\"Send message\"]}],\" for a Slack draft in the desktop app. Choose \",[\"$\",\"strong\",\"doc-20-5\",{\"children\":[\"Discard\"]}],\" to\\ndrop the draft.\"]}]\n24:[\"$\",\"p\",\"doc-21\",{\"children\":[\"Bots draft outgoing messages for your review by default. A draft card shows\\n\",[\"$\",\"strong\",\"doc-21-1\",{\"children\":[\"Needs approval\"]}],\". If you'd rather have a Bot send without preparing drafts,\\nopen that menu on one of its drafts and choose \",[\"$\",\"strong\",\"doc-21-3\",{\"children\":[\"Disable drafts for Bot\"]}],\". The\\nBot then sends directly, subject to your\\n\",[\"$\",\"$L11\",\"doc-21-5\",{\"href\":\"/en/grok-bot/approvals-security-and-privacy#configure-auto-review\",\"children\":[\"Auto Review\"]}],\"\\nsettings. The choice applies to that Bot only, and only its owner sees it; it\\nisn't offered in group chats. Email from the Bot's \",[\"$\",\"$L11\",\"doc-21-7\",{\"href\":\"/en/grok-bot/computer-and-apps#give-your-bots-an-email-address\",\"children\":[\"own\\naddress\"]}],\" that you\\ndidn't request in chat, such as email from a routine, always waits as a draft. To get\\ndrafts back, choose \",[\"$\",\"strong\",\"doc-21-9\",{\"children\":[\"Needs approval\"]}],\" on a draft card or ask the Bot. If the\\nchange doesn't save, the card shows \",[\"$\",\"code\",\"doc-21-11\",{\"children\":\"Couldn't save. Try again.\"}],\"; choose\\n\",[\"$\",\"strong\",\"doc-21-13\",{\"children\":[\"Retry\"]}],\".\"]}]\n25:[\"$\",\"h3\",\"doc-22\",{\"id\":\"redirect-work-in-progress\",\"children\":[\"$\",\"a\",null,{\"href\":\"#redirect-work-in-progress\",\"children\":[\"Redirect work in progress\"]}]}]\n26:[\"$\",\"p\",\"doc-23\",{\"children\":[\"Send a new message when priorities change. A direct message from you takes\\npriority over background work and can redirect the current turn.\"]}]\n27:[\"$\",\"p\",\"doc-24\",{\"children\":[\"Send a direct “Stop now” message when work should end immediately. This does not\\nundo actions the Bot already completed.\"]}]\n28:[\"$\",\"h3\",\"doc-25\",{\"id\":\"chat-in-x-chat\",\"children\":[\"$\",\"a\",null,{\"href\":\"#chat-in-x-chat\",\"children\":[\"Chat in X Chat\"]}]}]\n29:[\"$\",\"p\",\"doc-26\",{\"children\":[\"You can also chat with your Bots in X Chat, in the X app on iOS and Android and\\non x.com. They're the same Bots you use in the Grok Bot app. X Chat support is\\nrolling out gradually, so it may not show up for you yet even if your plan\\nincludes it, and it needs the latest version of the X app.\"]}]\n2a:[\"$\",\"p\",\"doc-27\",{\"children\":[\"You need a plan that includes Grok Bot. On \",[\"$\",\"$L11\",\"doc-27-1\",{\"href\":\"/en/x-subscription/overview\",\"children\":[\"The X\\nSubscription\"]}],\", that's \",[\"$\",\"strong\",\"doc-27-3\",{\"children\":[\"Premium\"]}],\", \",[\"$\",\"strong\",\"doc-27-5\",{\"children\":[\"Super\"]}],\", or\\n\",[\"$\",\"strong\",\"doc-27-7\",{\"children\":[\"Ultra\"]}],\"; \",[\"$\",\"strong\",\"doc-27-9\",{\"children\":[\"Plus\"]}],\" doesn't include Grok Bot. Legacy Cursor plans and linked\\nSuperGrok or X Premium+ accounts that include Grok Bot also work. See \",[\"$\",\"$L11\",\"doc-27-11\",{\"href\":\"/en/x-subscription/grok-bot\",\"children\":[\"Grok Bot\\non The X Subscription\"]}],\".\"]}]\n2b:[\"$\",\"p\",\"doc-28\",{\"children\":[\"Your Grok account also needs to be connected to a Cursor account. Connecting\\nfrom X Chat works only for personal accounts. It isn't available when your\\nemail is on a domain your company manages, your Cursor account is on a team, or\\nyour Cursor account is on a \",[\"$\",\"a\",\"doc-28-1\",{\"href\":\"https://cursor.com/docs/models-and-pricing#legacy-request-based-pricing\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"children\":[\"legacy request-based\\nplan\"]}],\".\\nIf a Cursor account already uses your email, you need to agree before it's\\nconnected.\"]}]\n2c:[\"$\",\"div\",\"doc-29\",{\"className\":\"table-wrap\",\"data-wide-table\":\"$undefined\",\"children\":[\"$\",\"table\",null,{\"children\":[[\"$\",\"thead\",null,{\"children\":[\"$\",\"tr\",null,{\"children\":[[\"$\",\"th\",\"doc-29-head-0\",{\"children\":[\"What's happening\"]}],[\"$\",\"th\",\"doc-29-head-1\",{\"children\":[\"What to do\"]}]]}]}],[\"$\",\"tbody\",null,{\"children\":[[\"$\",\"tr\",\"doc-29-row-0\",{\"children\":[[\"$\",\"td\",\"doc-29-cell-0-0\",{\"children\":[\"Your plan doesn't include Grok Bot\"]}],[\"$\",\"td\",\"doc-29-cell-0-1\",{\"children\":[\"Choose \",[\"$\",\"strong\",\"doc-29-cell-0-1-1\",{\"children\":[\"Premium\"]}],\" or higher on The X Subscription.\"]}]]}],[\"$\",\"tr\",\"doc-29-row-1\",{\"children\":[[\"$\",\"td\",\"doc-29-cell-1-0\",{\"children\":[\"Your Cursor account, or its team, uses Privacy Mode (Legacy)\"]}],[\"$\",\"td\",\"doc-29-cell-1-1\",{\"children\":[\"Switch your Cursor account to Privacy Mode. On a team, a team admin changes the team's privacy setting.\"]}]]}],[\"$\",\"tr\",\"doc-29-row-2\",{\"children\":[[\"$\",\"td\",\"doc-29-cell-2-0\",{\"children\":[\"Your Cursor account is on a legacy request-based plan\"]}],[\"$\",\"td\",\"doc-29-cell-2-1\",{\"children\":[\"Grok Bot isn't available on legacy request-based plans.\"]}]]}],[\"$\",\"tr\",\"doc-29-row-3\",{\"children\":[[\"$\",\"td\",\"doc-29-cell-3-0\",{\"children\":[\"Your email is on a domain your company manages, or your Cursor account is on a team\"]}],[\"$\",\"td\",\"doc-29-cell-3-1\",{\"children\":[\"Connecting from X Chat isn't available. Use Grok Bot in the Grok Bot app instead.\"]}]]}],[\"$\",\"tr\",\"doc-29-row-4\",{\"children\":[[\"$\",\"td\",\"doc-29-cell-4-0\",{\"children\":[\"Your Grok account's email isn't verified\"]}],[\"$\",\"td\",\"doc-29-cell-4-1\",{\"children\":[\"Verify your email on Grok, then try again.\"]}]]}],[\"$\",\"tr\",\"doc-29-row-5\",{\"children\":[[\"$\",\"td\",\"doc-29-cell-5-0\",{\"children\":[\"More than one Cursor account uses your email\"]}],[\"$\",\"td\",\"doc-29-cell-5-1\",{\"children\":[[\"$\",\"$L11\",\"doc-29-cell-5-1-0\",{\"href\":\"/en/grok-bot/troubleshooting\",\"children\":[\"Contact support\"]}],\" with the email address.\"]}]]}],[\"$\",\"tr\",\"doc-29-row-6\",{\"children\":[[\"$\",\"td\",\"doc-29-cell-6-0\",{\"children\":[\"You've used up your Grok Bot usage\"]}],[\"$\",\"td\",\"doc-29-cell-6-1\",{\"children\":[\"See \",[\"$\",\"a\",\"doc-29-cell-6-1-1\",{\"href\":\"https://cursor.com/help/grok-bot/plans#how-does-grok-bot-usage-work\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"children\":[\"How does Grok Bot usage work?\"]}]]}]]}],[\"$\",\"tr\",\"doc-29-row-7\",{\"children\":[[\"$\",\"td\",\"doc-29-cell-7-0\",{\"children\":[\"Your Bots don't show up in X Chat\"]}],[\"$\",\"td\",\"doc-29-cell-7-1\",{\"children\":[\"Update the X app to the latest version, then quit and reopen it.\"]}]]}],[\"$\",\"tr\",\"doc-29-row-8\",{\"children\":[[\"$\",\"td\",\"doc-29-cell-8-0\",{\"children\":[\"You see a new Bot instead of your own, or tapping your Bot shows \",[\"$\",\"strong\",\"doc-29-cell-8-0-1\",{\"children\":[\"Something went wrong\"]}]]}],[\"$\",\"td\",\"doc-29-cell-8-1\",{\"children\":[\"Your X account may be connected to a different Grok account. Follow the steps below.\"]}]]}]]}]]}]}]\n2d:[\"$\",\"p\",\"doc-30\",{\"children\":[\"X Chat uses the Grok account your X account is connected to. If you have more\\nthan one Grok account, that may not be the one you use with Grok Bot, and\\ntrying again doesn't help. To connect your X account to the Grok account you\\nuse with Grok Bot:\"]}]\n2e:[\"$\",\"ol\",\"doc-31\",{\"start\":1,\"children\":[[\"$\",\"li\",\"doc-31-0\",{\"children\":[\"In a browser, sign in at \",[\"$\",\"a\",\"doc-31-0-1\",{\"href\":\"https://accounts.x.ai\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"children\":[\"accounts.x.ai\"]}],\" with the Grok\\naccount you use with Grok Bot.\"]}],[\"$\",\"li\",\"doc-31-1\",{\"children\":[\"In the same browser, sign in to \",[\"$\",\"a\",\"doc-31-1-1\",{\"href\":\"https://x.com\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"children\":[\"x.com\"]}],\" with your X account.\"]}],[\"$\",\"li\",\"doc-31-2\",{\"children\":[\"Open \",[\"$\",\"a\",\"doc-31-2-1\",{\"href\":\"https://x.com/i/jf/grok/entry\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"children\":[\"x.com/i/jf/grok/entry\"]}],\". Choose to link\\nanother account, then allow access for the Grok account you signed in with.\"]}],[\"$\",\"li\",\"doc-31-3\",{\"children\":[\"Quit and reopen the X app, or reload x.com, and open your Bots again.\"]}]]}]\n2f:[\"$\",\"p\",\"doc-32\",{\"children\":[\"If that Grok account is already connected to a different X account, this\\ndoesn't work. If none of these match, \",[\"$\",\"$L11\",\"doc-32-1\",{\"href\":\"/en/grok-bot/troubleshooting\",\"children\":[\"contact\\nsupport\"]}],\" with your X handle and the email on your\\nGrok account.\"]}]\n30:[\"$\",\"h2\",\"doc-33\",{\"id\":\"start-a-group-chat\",\"children\":[\"$\",\"a\",null,{\"href\":\"#start-a-group-chat\",\"children\":[\"Start a group chat\"]}]}]\n31:[\"$\",\"p\",\"doc-34\",{\"children\":[\"Use a group when several Bots need one shared outcome and visible handoffs.\\nYou can also add a Bot a teammate \",[\"$\",\"$L11\",\"doc-34-1\",{\"href\":\"/en/grok-bot/shared-bots\",\"children\":[\"shared with you\"]}],\", but\\nnot alongside Bots that run on your own computer.\"]}]\n32:[\"$\",\"ol\",\"doc-35\",{\"start\":1,\"children\":[[\"$\",\"li\",\"doc-35-0\",{\"children\":[\"Choose \",[\"$\",\"strong\",\"doc-35-0-1\",{\"children\":[\"New chat\"]}],\", press \",[\"$\",\"code\",\"doc-35-0-3\",{\"children\":\"Cmd/Ctrl+Shift+N\"}],\", or open the command palette\\nwith \",[\"$\",\"code\",\"doc-35-0-5\",{\"children\":\"Cmd/Ctrl+K\"}],\" and choose \",[\"$\",\"strong\",\"doc-35-0-7\",{\"children\":[\"New group chat\"]}],\".\"]}],[\"$\",\"li\",\"doc-35-1\",{\"children\":[\"In the \",[\"$\",\"strong\",\"doc-35-1-1\",{\"children\":[\"To:\"]}],\" field, add two to six Bots.\"]}],[\"$\",\"li\",\"doc-35-2\",{\"children\":[\"Open the group, then edit its generated name if needed.\"]}],[\"$\",\"li\",\"doc-35-3\",{\"children\":[\"Describe the shared outcome and who owns the next step.\"]}]]}]\n33:[\"$\",\"p\",\"doc-36\",{\"children\":[\"On iPhone or Android, use \",[\"$\",\"strong\",\"doc-36-1\",{\"children\":[\"+ → New Group Chat\"]}],\". Group membership can be\\nedited later.\"]}]\n34:[\"$\",\"p\",\"doc-37\",{\"children\":[\"To rename a group on desktop, right-click it in the sidebar and choose \",[\"$\",\"strong\",\"doc-37-1\",{\"children\":[\"Rename\\nchat\"]}],\", or click the group's name at the top of the chat and click the name in\\nits details to edit it. On the phone, tap the group's name at the top of the\\nchat, tap \",[\"$\",\"strong\",\"doc-37-3\",{\"children\":[\"Edit\"]}],\", change the \",[\"$\",\"strong\",\"doc-37-5\",{\"children\":[\"Name\"]}],\", and tap \",[\"$\",\"strong\",\"doc-37-7\",{\"children\":[\"Done\"]}],\". To change what the\\ngroup is for, tell the Bots in the group.\"]}]\n35:[\"$\",\"p\",\"doc-38\",{\"children\":[\"Group chats don't have the per-Bot \",[\"$\",\"strong\",\"doc-38-1\",{\"children\":[\"Notifications\"]}],\" switch. See \",[\"$\",\"$L11\",\"doc-38-3\",{\"href\":\"/en/grok-bot/settings-and-notifications#control-notifications\",\"children\":[\"Control\\nnotifications\"]}],\".\"]}]\n36:[\"$\",\"h3\",\"doc-39\",{\"id\":\"direct-a-message\",\"children\":[\"$\",\"a\",null,{\"href\":\"#direct-a-message\",\"children\":[\"Direct a message\"]}]}]\n37:[\"$\",\"ul\",\"doc-40\",{\"start\":\"$undefined\",\"children\":[[\"$\",\"li\",\"doc-40-0\",{\"children\":[\"Write normally to let the participating Bots decide who should respond.\"]}],[\"$\",\"li\",\"doc-40-1\",{\"children\":[\"Type \",[\"$\",\"code\",\"doc-40-1-1\",{\"children\":\"@\"}],\" and select a Bot when one teammate owns the request.\"]}],[\"$\",\"li\",\"doc-40-2\",{\"children\":[\"Choose \",[\"$\",\"strong\",\"doc-40-2-1\",{\"children\":[\"Reply\"]}],\" on a Bot's message to direct your answer to that Bot.\"]}],[\"$\",\"li\",\"doc-40-3\",{\"children\":[\"Mention multiple Bots when the request genuinely needs each of them.\"]}],[\"$\",\"li\",\"doc-40-4\",{\"children\":[\"Use \",[\"$\",\"code\",\"doc-40-4-1\",{\"children\":\"@everyone\"}],\" sparingly for a group-wide update.\"]}]]}]\n38:[\"$\",\"p\",\"doc-41\",{\"children\":[\"Bots can post into the group and pass work among themselves. A useful kickoff\\nassigns one owner per stage:\"]}]\n39:[\"$\",\"blockquote\",\"doc-42\",{\"children\":[[\"$\",\"p\",\"doc-42-0\",{\"children\":[\"@Researcher gather the source material and link every claim. @Writer turn the\\nfindings into a launch draft. @Reviewer check the draft against the sources\\nand list only blocking issues. Do not publish anything.\"]}]]}]\n3a:[\"$\",\"p\",\"doc-43\",{\"children\":[\"Your messages in a group can include attachments. A Bot's replies there can\\ninclude files, questions, and forms, as in a one-to-one conversation, and your\\nanswer to a question or form goes back to the Bot that asked. Approval\\nrequests, secret and login requests, and email or Slack drafts do not appear in\\na group. Bot-to-group handoff messages are text-only, so a Bot should send an\\nimage directly to another Bot when that teammate must inspect it.\"]}]\n3b:[\"$\",\"h3\",\"doc-44\",{\"id\":\"keep-replies-in-the-group\",\"children\":[\"$\",\"a\",null,{\"href\":\"#keep-replies-in-the-group\",\"children\":[\"Keep replies in the group\"]}]}]\n3c:[\"$\",\"p\",\"doc-45\",{\"children\":[\"When you write in a group chat, the Bots answer there. A Bot can also message\\nyou in its own chat, or message another Bot to hand off work; those messages\\nshow up in the Bots' own chats, not in the group.\"]}]\n3d:[\"$\",\"p\",\"doc-46\",{\"children\":[\"To keep a Bot's replies in the group, tell it there: “Reply here in the group.\\nDon't message me privately about this.” To make it a lasting rule, ask each Bot\\nto remember it: “Remember: in group chats, reply in the group.”\"]}]\n3e:[\"$\",\"h3\",\"doc-47\",{\"id\":\"stop-bots-from-messaging-each-other\",\"children\":[\"$\",\"a\",null,{\"href\":\"#stop-bots-from-messaging-each-other\",\"children\":[\"Stop Bots from messaging each other\"]}]}]\n3f:[\"$\",\"p\",\"doc-48\",{\"children\":[\"There is no switch for this. Bots message each other to hand off work, and they\\nfollow your instructions about it.\"]}]\n40:[\"$\",\"ol\",\"doc-49\",{\"start\":1,\"children\":[[\"$\",\"li\",\"doc-49-0\",{\"children\":[\"Tell the Bots in the chat, for example: “Don't message other Bots. Ask me\\nfirst.”\"]}],[\"$\",\"li\",\"doc-49-1\",{\"children\":[\"To keep the rule, ask each Bot to remember it.\"]}],[\"$\",\"li\",\"doc-49-2\",{\"children\":[\"If a Bot keeps starting new work, open that Bot's chat and ask it to stop.\"]}]]}]\n41:[\"$\",\"p\",\"doc-50\",{\"children\":[\"To quiet a helper Bot without deleting it, turn off its notifications or hide\\nit. Every Bot reply counts toward your usage, including replies in a group and\\nmessages between Bots, so fewer Bots in a group means fewer replies.\"]}]\n42:[\"$\",\"h2\",\"doc-51\",{\"id\":\"let-bots-hand-work-off\",\"children\":[\"$\",\"a\",null,{\"href\":\"#let-bots-hand-work-off\",\"children\":[\"Let Bots hand work off\"]}]}]\n43:[\"$\",\"p\",\"doc-52\",{\"children\":[\"A Bot can send an asynchronous message to another Bot. The receiving Bot wakes,\\nhandles the request, and can reply later. You can see the handoff in the\\nconversation.\"]}]\n44:[\"$\",\"p\",\"doc-53\",{\"children\":[\"This is useful when:\"]}]\n45:[\"$\",\"ul\",\"doc-54\",{\"start\":\"$undefined\",\"children\":[[\"$\",\"li\",\"doc-54-0\",{\"children\":[\"One Bot owns a source system and another owns the deliverable\"]}],[\"$\",\"li\",\"doc-54-1\",{\"children\":[\"A specialist should review a draft\"]}],[\"$\",\"li\",\"doc-54-2\",{\"children\":[\"A blocker belongs to another role\"]}],[\"$\",\"li\",\"doc-54-3\",{\"children\":[\"A long-running job should continue without you coordinating every step\"]}]]}]\n46:[\"$\",\"p\",\"doc-55\",{\"children\":[\"Ask for a single owner at each stage. Parallel handoffs create duplicate work\\nand noisy updates.\"]}]\n47:[\"$\",\"p\",\"doc-56\",{\"children\":[\"A handoff needs a Bot acting for one person on that turn. Where you talk to it,\\nand whether it's a personal Bot or a \",[\"$\",\"$L11\",\"doc-56-1\",{\"href\":\"/en/grok-bot/shared-bots\",\"children\":[\"shared Bot\"]}],\",\\ndecide this:\"]}]\n48:[\"$\",\"div\",\"doc-57\",{\"className\":\"table-wrap\",\"data-wide-table\":\"$undefined\",\"children\":[\"$\",\"table\",null,{\"children\":[[\"$\",\"thead\",null,{\"children\":[\"$\",\"tr\",null,{\"children\":[[\"$\",\"th\",\"doc-57-head-0\",{\"children\":[\"Bot\"]}],[\"$\",\"th\",\"doc-57-head-1\",{\"children\":[\"Where you ask\"]}],[\"$\",\"th\",\"doc-57-head-2\",{\"children\":[\"Can it message other Bots?\"]}],[\"$\",\"th\",\"doc-57-head-3\",{\"children\":[\"Acting for\"]}],[\"$\",\"th\",\"doc-57-head-4\",{\"children\":[\"Where the reply lands\"]}]]}]}],[\"$\",\"tbody\",null,{\"children\":[[\"$\",\"tr\",\"doc-57-row-0\",{\"children\":[[\"$\",\"td\",\"doc-57-cell-0-0\",{\"children\":[\"Personal Bot\"]}],[\"$\",\"td\",\"doc-57-cell-0-1\",{\"children\":[\"The app, or your own Slack DM with it\"]}],[\"$\",\"td\",\"doc-57-cell-0-2\",{\"children\":[\"Yes\"]}],[\"$\",\"td\",\"doc-57-cell-0-3\",{\"children\":[\"You\"]}],[\"$\",\"td\",\"doc-57-cell-0-4\",{\"children\":[\"The app chat, not Slack\"]}]]}],[\"$\",\"tr\",\"doc-57-row-1\",{\"children\":[[\"$\",\"td\",\"doc-57-cell-1-0\",{\"children\":[\"Personal Bot\"]}],[\"$\",\"td\",\"doc-57-cell-1-1\",{\"children\":[\"A Slack channel thread\"]}],[\"$\",\"td\",\"doc-57-cell-1-2\",{\"children\":[\"No\"]}],[\"$\",\"td\",\"doc-57-cell-1-3\",{\"children\":[\"Nobody, the thread is shared\"]}],[\"$\",\"td\",\"doc-57-cell-1-4\",{\"children\":[\"The Bot says it can't do that\"]}]]}],[\"$\",\"tr\",\"doc-57-row-2\",{\"children\":[[\"$\",\"td\",\"doc-57-cell-2-0\",{\"children\":[\"Shared Bot\"]}],[\"$\",\"td\",\"doc-57-cell-2-1\",{\"children\":[\"A Slack channel thread or Slack DM\"]}],[\"$\",\"td\",\"doc-57-cell-2-2\",{\"children\":[\"Yes, to that person's own Bots\"]}],[\"$\",\"td\",\"doc-57-cell-2-3\",{\"children\":[\"The teammate who mentioned it\"]}],[\"$\",\"td\",\"doc-57-cell-2-4\",{\"children\":[\"The same Slack thread\"]}]]}]]}]]}]}]\n49:[\"$\",\"p\",\"doc-58\",{\"children\":[\"To hand work between Bots from a Slack channel, share a Bot and add it to Slack.\\nA shared Bot has its own Slack app and handle, and anyone in the channel can\\ngive it work. See \",[\"$\",\"$L11\",\"doc-58-1\",{\"href\":\"/en/grok-bot/shared-bots#how-do-i-add-a-shared-bot-to-slack\",\"children\":[\"How do I add a shared Bot to\\nSlack?\"]}]]}]\n4a:[\"$\",\"h2\",\"doc-59\",{\"id\":\"use-threads-and-reactions\",\"children\":[\"$\",\"a\",null,{\"href\":\"#use-threads-and-reactions\",\"children\":[\"Use threads and reactions\"]}]}]\n4b:[\"$\",\"p\",\"doc-60\",{\"children\":[\"Reply in a thread when feedback applies to one result or one approval request.\\nThis keeps the main transcript focused while preserving the context of the\\ndecision.\"]}]\n4c:[\"$\",\"p\",\"doc-61\",{\"children\":[\"Use reactions for lightweight acknowledgement. Use a written reply when the Bot\\nneeds a changed instruction; a reaction alone should not carry a safety-critical\\ndecision.\"]}]\n4d:[\"$\",\"h2\",\"doc-62\",{\"id\":\"find-prior-work\",\"children\":[\"$\",\"a\",null,{\"href\":\"#find-prior-work\",\"children\":[\"Find prior work\"]}]}]\n4e:[\"$\",\"p\",\"doc-63\",{\"children\":[\"Use the search or command palette to:\"]}]\n4f:[\"$\",\"ul\",\"doc-64\",{\"start\":\"$undefined\",\"children\":[[\"$\",\"li\",\"doc-64-0\",{\"children\":[\"Switch between Bots and groups\"]}],[\"$\",\"li\",\"doc-64-1\",{\"children\":[\"Find prior messages\"]}],[\"$\",\"li\",\"doc-64-2\",{\"children\":[\"Find files, links, and routines\"]}],[\"$\",\"li\",\"doc-64-3\",{\"children\":[\"Open settings and common actions\"]}],[\"$\",\"li\",\"doc-64-4\",{\"children\":[\"Jump back to the matching place in a conversation\"]}]]}]\n50:[\"$\",\"p\",\"doc-65\",{\"children\":[\"Search availability can vary during rollout. If cross-conversation results are\\nnot available, open the relevant Bot and use its conversation history.\"]}]\n51:[\"$\",\"p\",\"doc-66\",{\"children\":[\"Press \",[\"$\",\"code\",\"doc-66-1\",{\"children\":\"Cmd/Ctrl+K\"}],\" for the search palette, or \",[\"$\",\"code\",\"doc-66-3\",{\"children\":\"Cmd/Ctrl+Shift+F\"}],\" to search\\nBots. The full desktop list is in \",[\"$\",\"$L11\",\"doc-66-5\",{\"href\":\"#keyboard-shortcuts\",\"children\":[\"Keyboard shortcuts\"]}],\".\"]}]\n52:[\"$\",\"h2\",\"doc-67\",{\"id\":\"keyboard-shortcuts\",\"children\":[\"$\",\"a\",null,{\"href\":\"#keyboard-shortcuts\",\"children\":[\"Keyboard shortcuts\"]}]}]\n53:[\"$\",\"p\",\"doc-68\",{\"children\":[\"These shortcuts work in the Grok Bot desktop app. Use \",[\"$\",\"code\",\"doc-68-1\",{\"children\":\"Cmd\"}],\" on macOS and\\n\",[\"$\",\"code\",\"doc-68-3\",{\"children\":\"Ctrl\"}],\" on Windows and Linux unless a line says otherwise.\"]}]\n54:[\"$\",\"ul\",\"doc-69\",{\"start\":\"$undefined\",\"children\":[[\"$\",\"li\",\"doc-69-0\",{\"children\":[\"Jump to / search palette: \",[\"$\",\"code\",\"doc-69-0-1\",{\"children\":\"Cmd/Ctrl+K\"}]]}],[\"$\",\"li\",\"doc-69-1\",{\"children\":[\"Search Bots: \",[\"$\",\"code\",\"doc-69-1-1\",{\"children\":\"Cmd/Ctrl+Shift+F\"}]]}],[\"$\",\"li\",\"doc-69-2\",{\"children\":[\"New Bot: \",[\"$\",\"code\",\"doc-69-2-1\",{\"children\":\"Cmd/Ctrl+N\"}]]}],[\"$\",\"li\",\"doc-69-3\",{\"children\":[\"New group chat: \",[\"$\",\"code\",\"doc-69-3-1\",{\"children\":\"Cmd/Ctrl+Shift+N\"}]]}],[\"$\",\"li\",\"doc-69-4\",{\"children\":[\"Show all keyboard shortcuts: \",[\"$\",\"code\",\"doc-69-4-1\",{\"children\":\"Cmd/Ctrl+/\"}]]}],[\"$\",\"li\",\"doc-69-5\",{\"children\":[\"Find in this chat: \",[\"$\",\"code\",\"doc-69-5-1\",{\"children\":\"Cmd/Ctrl+F\"}]]}],[\"$\",\"li\",\"doc-69-6\",{\"children\":[\"Compact sidebar: \",[\"$\",\"code\",\"doc-69-6-1\",{\"children\":\"Cmd/Ctrl+B\"}]]}],[\"$\",\"li\",\"doc-69-7\",{\"children\":[\"Focus prompt: \",[\"$\",\"code\",\"doc-69-7-1\",{\"children\":\"Cmd/Ctrl+I\"}]]}],[\"$\",\"li\",\"doc-69-8\",{\"children\":[\"Add selected text to chat: \",[\"$\",\"code\",\"doc-69-8-1\",{\"children\":\"Cmd/Ctrl+L\"}],\", which focuses the prompt when\\nnothing is selected\"]}],[\"$\",\"li\",\"doc-69-9\",{\"children\":[\"Sidebar Bot 1–9: \",[\"$\",\"code\",\"doc-69-9-1\",{\"children\":\"Cmd/Ctrl+1\"}],\" through \",[\"$\",\"code\",\"doc-69-9-3\",{\"children\":\"Cmd/Ctrl+9\"}]]}],[\"$\",\"li\",\"doc-69-10\",{\"children\":[\"Previous / next Bot: \",[\"$\",\"code\",\"doc-69-10-1\",{\"children\":\"Alt+↑\"}],\" / \",[\"$\",\"code\",\"doc-69-10-3\",{\"children\":\"Alt+↓\"}]]}],[\"$\",\"li\",\"doc-69-11\",{\"children\":[\"Back / forward in visit history: \",[\"$\",\"code\",\"doc-69-11-1\",{\"children\":\"Cmd/Ctrl+[\"}],\" / \",[\"$\",\"code\",\"doc-69-11-3\",{\"children\":\"Cmd/Ctrl+]\"}]]}],[\"$\",\"li\",\"doc-69-12\",{\"children\":[\"Cycle Bots: \",[\"$\",\"code\",\"doc-69-12-1\",{\"children\":\"Control+Tab\"}],\" / \",[\"$\",\"code\",\"doc-69-12-3\",{\"children\":\"Control+Shift+Tab\"}],\" (always Control, including\\non macOS)\"]}],[\"$\",\"li\",\"doc-69-13\",{\"children\":[\"Connect apps: \",[\"$\",\"code\",\"doc-69-13-1\",{\"children\":\"Cmd/Ctrl+Shift+M\"}],\" or \",[\"$\",\"code\",\"doc-69-13-3\",{\"children\":\"Cmd/Ctrl+Shift+W\"}]]}],[\"$\",\"li\",\"doc-69-14\",{\"children\":[\"Toggle Bot settings: \",[\"$\",\"code\",\"doc-69-14-1\",{\"children\":\"Cmd/Ctrl+Shift+,\"}]]}],[\"$\",\"li\",\"doc-69-15\",{\"children\":[\"Conversation details: \",[\"$\",\"code\

@@ -1,0 +1,200 @@
+Grok Bot Changelog: New features, improvements, and… | AI Radar
+ 
+ 
+ 
+  
+    
+AI Radar
+    
+      
+Gallery
+      
+Tools
+      
+Keywords
+      
+Posts
+      
+Curators
+    
+    
+      
+        
+        
+Search
+⌘K
+      
+      
+        
+        
+Support
+      
+      
+FR
+      
+        
+      
+    
+  
+Home
+ / 
+Tools
+ / 
+Grok Bot Changelog
+Live
+Updated 2026-11-17 13:49 UTC
+Grok Bot Changelog
+      
+Grok Bot Changelog
+ is New features, improvements, and fixes in each Grok Bot release, with the version that ships them..
+      It is ranked #4463 on the AI Radar, in 
+Frontier models
+, first seen 42 days ago and shared in 33 posts (24.6M views).
+      
+Visit x.ai
+      
+      
+Grok Bot Changelog | SpaceXSI Changelog New features, improvements, and fixes in each release. Grok Build Grok Bot Latest v 1.0.1 · Nov 11, 2026 · RSS Download for macOS November 11, 2026 Nov 11, 2026 v 1.0.1 Meetings, Microsoft Teams, and shared connectors Also includes 1.0.0 New On Team, Enterprise, and Ultra plans, a Bot can join a Google Meet, Zoom, or Microsoft Teams call from a link, answer in the meeting chat, and send a summary afterward. Team Bots can join Microsoft Teams: a team admin turns it on, an owner or Manager connects the Bot, and a Teams admin approves it. Teams Owners and Managers can share their own app login as a…
+      
+What people said about Grok Bot Changelog on X
+Last Grok Bot update in changelog was 10 days ago https://x.ai/changelog/bot
+— 
+@melvindvivas
+, 11 days ago · 6 likes · 
+see the post
+      
+Alternatives to Grok Bot Changelog
+Thinking Machines Lab
+ — Today we are introducing the second generation of Inkling models with the release of Inkling 2 Small.
+Tencent Hy
+ — Tencent Hy
+clocktowerbench.com
+ — You can see the full benchmark at the website, and I’ve also made it so that you and your friends can play again the AIs
+openai.com
+ — 
+Claude
+ — Basecamp for Claude is live!
+Fireworks AI
+ — Run open models like GLM 5.2 Fast in Claude Code, Codex, and OpenCode. FireRouter scores each request, and you set…
+      
+Grok Bot Changelog in numbers
+      
+Rank on the AI Radar: #4463 of 10568
+        
+Shared in 33 posts by 13 accounts: 
+@melvindvivas
+        
+24.6M views on those posts
+        
+First seen 42 days ago, last shared 11 days ago
+        
+Pricing seen by AGK Intelligence: not stated
+        
+Market: 
+Frontier models
+      
+FAQ
+What is Grok Bot Changelog?
+New features, improvements, and fixes in each Grok Bot release, with the version that ships them. It was first shared on X 42 days ago and is ranked #4463 on the AI Radar.
+Is Grok Bot Changelog free?
+Pricing is not stated on the page we read.
+Who shared Grok Bot Changelog?
+13 accounts on X, including @melvindvivas, in 33 posts totalling 24.6M views.
+Every post is read and classified by AGK Intelligence: what it is, which market it
+    belongs to, and whether the link is a real tool. 21.8k posts from 5k X accounts
+    over the last 14 days, 10.6k tools, 19 markets.
+    New posts are collected several times an hour and the full ranking is recomputed every hour — last update 2026-11-17 13:49 UTC. 
+Full method
+.
+    
+Explore the radar
+    
+Markets:
+ 
+AI business
+ · 
+AI image
+ · 
+AI agents
+ · 
+AI infra & evals
+ · 
+Prompting
+ · 
+Safety & policy
+ · 
+AI sales & support
+ · 
+Open & local models
+    
+Top tools:
+ 
+Thinking Machines Lab
+ · 
+kimi-k3.1-pro
+ · 
+openai.com
+ · 
+theaiopportunities.com
+ · 
+Nous Portal
+ · 
+Tencent Hy
+ · 
+clocktowerbench.com
+ · 
+openai.com
+    
+Sections:
+ 
+All tools
+ · 
+Money board
+ · 
+Latest posts
+ · 
+Best accounts
+ · 
+Method
+  
+  
+    
+      
+AI Radar
+      
+An independent tracker by Agentik OS. Posts belong to their authors and link back to X. Tools link to their makers.
+    
+    
+      
+Method
+      
+Every hour, public posts are collected from a growing network of curators, every linked page is read, and AGK Intelligence classifies each post, tool and keyword.
+    
+    
+      
+Community
+      
+      
+☕ 
+Buy us a coffee
+    
+  
+  
+The Agentik OS radars:
+Design Radar
+Marketing Radar
+Dev Radar
+Vibe Coding Radar
+AGK Radar
+Stars Radar
+Frontier
+  
+Built by 
+Agentik OS
+ · Specialized operating systems.
+  
+    
+      
+      
+      
+esc

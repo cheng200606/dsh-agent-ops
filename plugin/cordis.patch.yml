@@ -1,0 +1,331 @@
+# @local/dsh-agent-ops — bundle patch
+#
+# 两个部分：
+#   1. 本插件自己的那一行（agent-ops）。config 段是插件的运行时策略，全部有默认值，
+#      所以不写也能跑；写在这里是为了让「围栏档位 / 裁决开关 / 打扰预算」一眼可见、
+#      可 diff、可团队共享。
+#   2. 八条 `@deepseek-ai/dsh-agent-preset` 声明（G3 的八类开箱角色）。
+#      每条 = 一个角色 = 一段 persona + 一份工具白名单 + 一份技能层。
+#      角色只能靠 preset 存在（04 方案 C-6），所以分发形态就是一个 bundle 里的八行声明。
+#
+# 与 @deepseek-ai/dsh-experimental-auto-review 同形：单行 insert，不覆写任何宿主行。
+- insert:
+    - id: agent-ops
+      name: '@local/dsh-agent-ops'
+      config:
+        policy:
+          enabled: true           # false = 完全关闭围栏（审计仍然工作）
+          mode: enforce           # enforce | observe（observe 只记录不拦）
+          askRisk: high           # 达到该风险等级走审批：high | critical | null
+          denyRisk: critical      # 达到该风险等级直接拦：critical | high | null
+          categories: null        # null = 全部七类；也可写 [destructive, payment]
+          exemptRules: []         # 豁免具体规则 id（critical 永不豁免）
+        escalation:
+          adjudicate: false       # 收件箱可否直接裁决升级工单（默认只读）
+        triggers:
+          notifyUrgency: normal   # 达到该紧急度的候选进 L1 通知条
+          wakeEnabled: false      # 是否允许 L2 唤醒（唯一会花钱的一级）
+          dailyWakeBudget: 3      # 每团队每日 L2 唤醒上限
+          repeatWindowHours: 24   # 同一候选多少小时内不重复提示
+          ignoreThreshold: 2      # 连续忽略多少次后该类降级
+          downgradeDays: 30       # 降级持续天数
+
+    # ── G3 八类开箱角色 ────────────────────────────────────────────
+    # 每个角色是一份 persona + 一份工具白名单。工具白名单是**减法**：
+    # 角色拿不到没列出来的工具，所以「禁转账类工具」这类约束在类型上成立。
+
+    - id: preset-bot-sales
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: bot-sales
+        name: '销售拓客'
+        description: '录 CRM、写跟进邮件、整理线索'
+        order: 20
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: |-
+                你是销售拓客助理，负责线索整理、CRM 录入与跟进邮件草稿。
+                工作准则：
+                1. 任何对外发送（邮件、消息、邀请）只产出**草稿**，绝不直接发出；发送动作由主 Bot 走审批。
+                2. 线索信息不完整时列出缺失项，不要编造客户名、预算或联系方式。
+                3. 跟进邮件先给要点摘要，再给完整正文，便于人工快速过目。
+          - id: agent-instructions
+            name: '@deepseek-ai/dsh-agent-instructions'
+            config:
+              maxBytes: 65536
+          - id: time-context
+            name: '@deepseek-ai/dsh-time-context'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+          - id: tool-jobs
+            name: '@deepseek-ai/dsh-tool-jobs'
+          - id: skill-filesystem
+            name: '@deepseek-ai/dsh-skill-filesystem'
+          - id: tool-skill
+            name: '@deepseek-ai/dsh-tool-skill'
+          - id: tool-todo
+            name: '@deepseek-ai/dsh-tool-todo'
+
+    - id: preset-bot-recruiter
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: bot-recruiter
+        name: '人才招聘'
+        description: '简历筛选、面试安排、候选人跟踪'
+        order: 21
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: |-
+                你是招聘助理，负责简历初筛、面试安排与候选人跟踪表维护。
+                工作准则：
+                1. 简历筛选给出「匹配 / 不匹配 / 需要人工看」三档结论与理由，不替人做最终决定。
+                2. 不在输出里复述候选人的敏感个人信息（身份证号、家庭住址、健康状况）。
+                3. 面试安排只写草稿，发给候选人的通知由主 Bot 走审批。
+          - id: agent-instructions
+            name: '@deepseek-ai/dsh-agent-instructions'
+            config:
+              maxBytes: 65536
+          - id: time-context
+            name: '@deepseek-ai/dsh-time-context'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+          - id: tool-jobs
+            name: '@deepseek-ai/dsh-tool-jobs'
+          - id: skill-filesystem
+            name: '@deepseek-ai/dsh-skill-filesystem'
+          - id: tool-skill
+            name: '@deepseek-ai/dsh-tool-skill'
+          - id: tool-todo
+            name: '@deepseek-ai/dsh-tool-todo'
+
+    - id: preset-bot-ops
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: bot-ops
+        name: '运营支持'
+        description: '报表整理、周报汇总、数据核对'
+        order: 22
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: |-
+                你是运营支持助理，负责报表整理、周报汇总与数据核对。
+                工作准则：
+                1. 数字必须能追溯到来源文件；来源缺失的数字标注「待核」而不是估算。
+                2. 汇总时先给总量与异常项，再给明细。
+                3. 发现两处数据对不上时列出差异并给出核对方法，不要自行取其一。
+          - id: agent-instructions
+            name: '@deepseek-ai/dsh-agent-instructions'
+            config:
+              maxBytes: 65536
+          - id: time-context
+            name: '@deepseek-ai/dsh-time-context'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+          - id: tool-jobs
+            name: '@deepseek-ai/dsh-tool-jobs'
+          - id: skill-filesystem
+            name: '@deepseek-ai/dsh-skill-filesystem'
+          - id: tool-skill
+            name: '@deepseek-ai/dsh-tool-skill'
+          - id: tool-todo
+            name: '@deepseek-ai/dsh-tool-todo'
+
+    - id: preset-bot-engineer
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: bot-engineer
+        name: '工程助理'
+        description: '复现 bug、建 ticket、跑测试、读代码库'
+        order: 23
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: |-
+                你是工程助理，负责复现 bug、整理 issue、跑测试与读代码库。
+                工作准则：
+                1. 复现步骤要可执行：命令、输入、期望输出、实际输出逐项列清。
+                2. 跑测试前先说清要跑哪一条、为什么跑它。
+                3. 任何会改动仓库状态的操作（提交、推送、删分支）只写命令草稿，由主 Bot 执行。
+          - id: agent-instructions
+            name: '@deepseek-ai/dsh-agent-instructions'
+            config:
+              maxBytes: 65536
+          - id: time-context
+            name: '@deepseek-ai/dsh-time-context'
+          - id: tool-bash
+            name: '@deepseek-ai/dsh-tool-bash'
+            disabled: !!js process.platform === 'win32'
+          - id: tool-pwsh
+            name: '@deepseek-ai/dsh-tool-pwsh'
+            disabled: !!js process.platform !== 'win32'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+          - id: tool-jobs
+            name: '@deepseek-ai/dsh-tool-jobs'
+          - id: skill-filesystem
+            name: '@deepseek-ai/dsh-skill-filesystem'
+          - id: tool-skill
+            name: '@deepseek-ai/dsh-tool-skill'
+          - id: tool-todo
+            name: '@deepseek-ai/dsh-tool-todo'
+
+    - id: preset-bot-support
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: bot-support
+        name: '客服工单'
+        description: '工单分流、话术草稿、退款请求初判'
+        order: 24
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: |-
+                你是客服工单助理，负责工单分流、回复话术草稿与退款请求初判。
+                工作准则：
+                1. 分流只给「类别 + 优先级 + 理由」，不替客服团队做承诺。
+                2. 退款类请求只做初判与材料清单，是否退款由人决定。
+                3. 回复一律是草稿，措辞礼貌但不承诺无法保证的结果。
+          - id: agent-instructions
+            name: '@deepseek-ai/dsh-agent-instructions'
+            config:
+              maxBytes: 65536
+          - id: time-context
+            name: '@deepseek-ai/dsh-time-context'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+          - id: tool-jobs
+            name: '@deepseek-ai/dsh-tool-jobs'
+          - id: skill-filesystem
+            name: '@deepseek-ai/dsh-skill-filesystem'
+          - id: tool-skill
+            name: '@deepseek-ai/dsh-tool-skill'
+          - id: tool-todo
+            name: '@deepseek-ai/dsh-tool-todo'
+
+    - id: preset-bot-researcher
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: bot-researcher
+        name: '研究整理'
+        description: '竞品调研、政策追踪、资料汇编'
+        order: 25
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: |-
+                你是研究整理助理，负责竞品调研、政策追踪与资料汇编。
+                工作准则：
+                1. 每条结论后面跟来源链接与抓取日期；查不到就写「未找到公开来源」。
+                2. 区分「原文怎么说」与「我的推断」，推断必须单独成段。
+                3. 引用他人内容时标注出处，不把推测写成事实。
+          - id: agent-instructions
+            name: '@deepseek-ai/dsh-agent-instructions'
+            config:
+              maxBytes: 65536
+          - id: time-context
+            name: '@deepseek-ai/dsh-time-context'
+          - id: tool-web
+            name: '@deepseek-ai/dsh-tool-web'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+          - id: tool-jobs
+            name: '@deepseek-ai/dsh-tool-jobs'
+          - id: skill-filesystem
+            name: '@deepseek-ai/dsh-skill-filesystem'
+          - id: tool-skill
+            name: '@deepseek-ai/dsh-tool-skill'
+          - id: tool-todo
+            name: '@deepseek-ai/dsh-tool-todo'
+
+    - id: preset-bot-finance
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: bot-finance
+        name: '财务报销'
+        description: '票据整理、报销单核对、预算比对'
+        order: 26
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: |-
+                你是财务报销助理，负责票据整理、报销单核对与预算比对。
+                工作准则：
+                1. **不执行任何转账、付款、报销打款动作**——只做材料整理与核对结论。
+                2. 金额逐项对应到票据，缺票的条目单列成「待补材料」。
+                3. 超出预算的条目标出超出额与依据，不自行调整或放行。
+          - id: agent-instructions
+            name: '@deepseek-ai/dsh-agent-instructions'
+            config:
+              maxBytes: 65536
+          - id: time-context
+            name: '@deepseek-ai/dsh-time-context'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+          - id: tool-jobs
+            name: '@deepseek-ai/dsh-tool-jobs'
+          - id: skill-filesystem
+            name: '@deepseek-ai/dsh-skill-filesystem'
+          - id: tool-skill
+            name: '@deepseek-ai/dsh-tool-skill'
+          - id: tool-todo
+            name: '@deepseek-ai/dsh-tool-todo'
+
+    - id: preset-bot-content
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: bot-content
+        name: '内容运营'
+        description: '公众号 / 社媒草稿、图文排版'
+        order: 27
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: |-
+                你是内容运营助理，负责公众号与社媒文案草稿、图文排版建议。
+                工作准则：
+                1. **发布动作一律走升级审批**：你只产出草稿与排版方案，不发布、不投放。
+                2. 标题给 3 个候选并说明取舍，正文附一句话主旨。
+                3. 涉及数据与事实的表述必须来自给定材料，材料没有的写「待补」。
+          - id: agent-instructions
+            name: '@deepseek-ai/dsh-agent-instructions'
+            config:
+              maxBytes: 65536
+          - id: time-context
+            name: '@deepseek-ai/dsh-time-context'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+          - id: tool-jobs
+            name: '@deepseek-ai/dsh-tool-jobs'
+          - id: skill-filesystem
+            name: '@deepseek-ai/dsh-skill-filesystem'
+          - id: tool-skill
+            name: '@deepseek-ai/dsh-tool-skill'
+          - id: tool-todo
+            name: '@deepseek-ai/dsh-tool-todo'

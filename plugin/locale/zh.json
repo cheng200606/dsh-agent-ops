@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "title": "Agent Ops 运行台",
+    "description": "审批审计时间线、围栏与高危动作分类：把「谁批准了什么、什么被拦下了」变成可读的一列。",
+    "detail": "docs/DETAIL.zh.md"
+  },
+  "panel": "运行台",
+  "title": "Agent Ops 运行台",
+  "subtitle": "审批与围栏的只读审计面",
+  "empty": "本会话还没有审批或围栏记录。",
+  "loading": "读取中…",
+  "unsupported": "当前 DSH 版本未提供会话投影读取能力，运行台降级为只读空态。",
+  "filters": {
+    "all": "全部",
+    "approval": "审批",
+    "fence": "围栏"
+  },
+  "counters": {
+    "asked": "审批请求",
+    "allowed": "放行",
+    "denied": "拒绝",
+    "blocked": "围栏拦截"
+  },
+  "outcome": {
+    "allowed-once": "放行",
+    "rejected": "拒绝",
+    "cancelled": "取消",
+    "unavailable": "无人应答",
+    "pending": "待决定"
+  },
+  "columns": {
+    "time": "时间",
+    "tool": "工具",
+    "event": "事件",
+    "outcome": "结果",
+    "reason": "原因"
+  },
+  "sessions": "会话",
+  "refresh": "刷新",
+  "config": "配置",
+  "fenceOn": "围栏已启用",
+  "fenceOff": "围栏未启用（观察模式）",
+  "docs": "说明"
+}

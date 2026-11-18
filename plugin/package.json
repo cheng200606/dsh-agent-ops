@@ -1,0 +1,49 @@
+{
+  "name": "@local/dsh-agent-ops",
+  "version": "0.7.0",
+  "private": true,
+  "type": "module",
+  "description": "Agent Ops 运行台：审批审计时间线、围栏与高危动作分类的可观测控制面。",
+  "main": "./lib/index.js",
+  "icon": "./icon.svg",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test",
+    "embed-rules": "node scripts/embed-rules.mjs",
+    "prepack": "node scripts/embed-rules.mjs"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "lib/**/*.js",
+    "skills/**/*.md",
+    "scripts/embed-rules.mjs",
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale/*.json",
+    "docs"
+  ],
+  "engines": {
+    "dsh": ">=0.2.2-rc.3 <0.3.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-session": "*",
+    "@deepseek-ai/dsh-llm": "*"
+  }
+}

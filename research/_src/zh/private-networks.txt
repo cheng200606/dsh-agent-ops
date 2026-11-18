@@ -1,0 +1,401 @@
+Connect to private networks | Grok Docs 
+
+English Docs 
+API 
+Docs REST Reference 
+
+Grok Build Grok Bot Grok X Subscription English 中文 English 
+
+Search ⌘ K API Console 
+Products
+Grok 
+Status
+Operational 
+Resources
+llms.txt Discord Email support Terms & policies 
+
+Contact us pulengba@gmail.com 
+
+Get Started
+Overview 
+Get Started 
+Use cases 
+How Grok Bot works 
+Changelog 
+
+Use Grok Bot
+Message and collaborate 
+Files and results 
+Use the computer and apps 
+Create and manage Bots 
+Skills and routines 
+Approvals and privacy 
+Vault and secure sign-in 
+Shared Bots 
+Grok Bot for Mobile 
+Add a Bot to Slack 
+Tag @bot on X 
+
+Teams and enterprises
+Admin overview 
+Deploy to your organization 
+Identity and access 
+Private networks 
+TLS-inspecting proxies 
+Manage computers 
+Inference hooks 
+Security 
+Security FAQ 
+
+Reference
+Settings and notifications 
+Troubleshooting 
+FAQ 
+
+Teams and enterprises 
+Connect to private networks 
+Copy for LLM Copying... Copied Copy failed View as Markdown 
+
+Grok Bot computers run in Cursor's cloud and reach the internet through
+shared static egress IP addresses .
+If the systems your Bots need live on a private network, route traffic through a
+member's desktop or install your organization's networking client on every team
+computer through Team Setup Scripts . 
+Team Setup Scripts is Enterprise only. It does not appear on other plans.
+Network Controls is also Enterprise only. That
+network policy is a separate layer that
+still applies; private network reach does not replace your destination
+allowlist.
+What you can do 
+Route one member's traffic through their desktop, so destinations see that
+device's IP address. Sites that resolve to a private or VPN address stay
+blocked unless they have been allowed for your organization.
+Install your networking client on every team computer automatically, from one
+admin-managed manifest, with no per-computer setup.
+Let Bots reach services on your private network without exposing those
+services to the internet or adding shared egress IPs to your allowlists.
+Keep control on your side: your network, your access rules, and your identity
+provider. You can revoke a computer from your own admin console at any time.
+Choose a connection method 
+Method Use it when 
+Route traffic through a desktop One member needs public sites to see their device's IP address, such as a site that allowlists office IPs 
+Install a networking client with Team Setup Your Enterprise team needs a consistent connection on every hosted computer 
+
+Route through a member's desktop 
+In the Grok Bot desktop app, open Settings → Computer and, under Your computer ,
+turn on Route traffic through this computer . The route uses the current device's
+network and IP address. It stops when the setting is turned off or an Enterprise
+admin disables Allow Local Egress Routing .
+The route does not open your private network to the Bot. Sites that resolve to
+a private or VPN address are blocked unless they have been allowed for your
+organization, and the setting shows how many sites were blocked this session.
+To reach private services,
+install a networking client with Team Setup .
+Each member controls their own desktop route. Enterprise admins can remove this
+option for the whole team from
+Grok Bot in the Cursor dashboard . See
+Route traffic through your desktop .
+Install a networking client with Team Setup 
+This is a pattern you run, not a Cursor-managed network mode. Cursor provides
+the hook: Team Setup Scripts runs your install scripts on every team computer. You own
+the rest: installing the client, configuring it, authenticating computers,
+maintaining access rules, and keeping up with your vendor's changes. Cursor
+installs nothing by default, does not operate or monitor your network client, and
+the dashboard shows no client status. Your vendor's documentation is the source
+of truth for installing and configuring their software; this page covers the
+Cursor side.
+Before you start 
+You are a team admin on the Enterprise plan. Team Setup Scripts is
+Enterprise only and does not appear on other plans.
+Your networking client runs on Debian-based Linux and can be installed and
+started from a shell script. Team computers run Linux, and scripts run as the
+computer user with sudo available.
+Your network has a way in for that client: a gateway, exit node, or tunnel
+connector inside the VPC or intranet you want to reach, per your vendor's
+architecture.
+You have decided how computers will authenticate to your network. Keep
+credentials out of setup scripts; if a script needs one, store it as a
+Team Secret .
+How Team Setup runs your scripts 
+Team Setup Scripts lives under Bot Computers on the Grok Bot page of
+the Cursor dashboard : manifests of install
+scripts that run on every team computer. Each manifest holds one or more script
+entries, and each entry has an ID , a Setup Script , and an optional
+Check Script . To run a manifest on one cohort's computers only, add it under
+the group's Grok Bot tab instead; see
+Group settings . Group
+manifests follow the same rules as the ones below.
+Scripts run as the computer user on every team computer; use sudo for
+privileged installs.
+They run when a computer starts, and on a periodic refresh, roughly daily,
+while it runs.
+If a Check Script is present and exits 0, the Setup Script is skipped; use it
+to avoid reinstalling on every pass. After a setup runs, the check runs again
+to verify it succeeded.
+Entries run one at a time, in order. Each script has a 30-minute timeout. A
+failed script does not block the computer; it is retried on a later refresh.
+Scripts read your team's
+Team Secrets as environment
+variables, so a credential a script needs never appears in the manifest.
+Secrets are present only while the script runs, and script output is redacted
+before it is logged. A computer whose setup comes from more than one team
+receives no secrets.
+Create the manifest 
+Go to Grok Bot in the Cursor dashboard 
+and find Team Setup Scripts under Bot Computers .
+Next to Manifests , select + to create a New Manifest , then enter
+a Manifest ID , for example private-network .
+In the script entry, set the ID (for example install-network-client )
+and write the Setup Script : install your client following your
+provider's Linux install documentation, then start it and connect it to your
+network the way your configuration prescribes.
+Optionally add a Check Script (for example command -v <your-client> ),
+so computers that already have the client skip the install.
+Select Save .
+If you prefer editing JSON, toggle from Form to JSON at the top of the
+editor. The manifest has this structure:
+JSON
+
+{ 
+"manifestId" : "private-network" , 
+"entries" : [ 
+{ 
+"id" : "install-network-client" , 
+"setup" : "#!/usr/bin/env bash \n set -euo pipefail \n # 1) Install your networking client per your provider's Linux install docs \n # 2) Start the client and connect it to your network per your configuration" , 
+"check" : "command -v &#x3C;your-client>" 
+} 
+] 
+} 
+
+Do not paste secret values into scripts. Setup scripts run as the computer
+user on every team computer, and manifests are plain text applied to your
+whole fleet. If a script needs an auth key, token, or other credential, store
+it as a Team Secret and read
+it from the environment, for example "$MY_AUTH_KEY" . Where your vendor
+supports it, prefer having members authenticate interactively in the
+computer's browser, where your identity provider's policies apply.
+Set up your networking client 
+Whatever tool you use, the last mile is the same: each computer authenticates to
+your network, you confirm the connection in your vendor's console, and you
+verify by asking a Bot to reach an internal hostname it could not reach before.
+Interactive login happens in the computer's browser, the same way members
+already sign in to company tools there . Start
+with one or two pilot computers before rolling out team-wide.
+Tailscale 
+Run Tailscale on each computer and route through an
+exit node inside your network.
+This is the configuration the pattern has been exercised with. Tailscale also
+offers subnet routers for
+exposing specific private ranges; validate that arrangement on a pilot computer
+before relying on it.
+Before you start: you operate a tailnet with an exit node inside the VPC or
+intranet you want to reach.
+Team Setup manifest: 
+Setup Script: install Tailscale for Linux following
+Tailscale's install documentation ,
+then bring the computer onto your tailnet per your configuration.
+Check Script: command -v tailscale .
+Connect and verify: 
+Authenticate each computer. Tailscale prints a login URL that opens in the
+computer's browser, where your identity provider's policies apply. If you
+would rather join computers without a member signing in, store a reusable,
+tagged auth key as a
+Team Secret and pass it from
+the environment, for example tailscale up --auth-key "$TS_AUTHKEY" . Every
+team computer then joins under the same key and tags rather than under the
+member's identity, so scope the key's ACLs accordingly. Never paste the key
+into the script itself.
+Confirm the computer appears in your Tailscale admin console and is allowed
+to use the exit node.
+Ask a Bot to reach an internal hostname.
+If it does not work: 
+The client installed but nobody authenticated. With browser login, the step
+is manual; with an auth key, check that the Team Secret exists, that its name
+matches what the script reads, and that the key has not expired. Check the
+machine list in your Tailscale admin console.
+Your team's network policy is allowlist-only and blocks Tailscale's
+coordination servers or relays. Allow the endpoints from Tailscale's docs.
+Running computers apply the change within about a minute. Sleeping computers
+apply it when they next wake.
+The exit node is not advertised or approved in your tailnet. Check route
+settings in the admin console.
+The computer was recreated, for example after an image update or reset, and
+the session did not survive. Authenticate again.
+Cloudflare Tunnel 
+The same Team Setup mechanics work for
+Cloudflare Tunnel :
+a cloudflared connector inside your network publishes private services through
+Cloudflare's edge, protected by Cloudflare Access, and the computer reaches them
+by hostname. This arrangement has not been exercised on team computers the way
+the Tailscale one has, so validate it on a pilot computer before rolling out.
+Before you start: you run a Cloudflare Tunnel connector inside your private
+network, with the services you need routed through it, and you have chosen your
+Cloudflare Access policy. Identity-based policies fit this pattern well, since
+members sign in through the browser. Access service tokens are secrets; if you
+use them, store them as
+Team Secrets rather than in
+setup scripts.
+Team Setup manifest: 
+Setup Script: install cloudflared following
+Cloudflare's downloads documentation .
+Only the client goes on the computer; the connector stays in your network.
+Check Script: command -v cloudflared .
+Connect and verify: 
+Private HTTP services: reach them at the hostname you routed through the
+tunnel. Cloudflare Access enforces your policy; with identity-based policies,
+the member signs in through the computer's browser.
+Private TCP services, such as databases or SSH: run cloudflared access tcp 
+on the computer to open a local listener and point the tool at it.
+Cloudflare's docs cover the flow. A Bot can start the listener in its shell
+when it needs the service.
+Ask a Bot to reach the private hostname or service.
+If it does not work: 
+The connector inside your network is down. Check tunnel health in your
+Cloudflare dashboard; this fails on your side, not the computer's.
+Cloudflare Access denies the request. Check your Access logs and confirm the
+member has authenticated.
+Your team's network policy is allowlist-only and blocks the tunnel hostname or
+Cloudflare's endpoints. Allow them. Running computers apply the change within
+about a minute. Sleeping computers apply it when they next wake.
+A service token was embedded in the setup script. Do not do this; manifests are
+plain text. Use identity-based Access, or store the token as a Team Secret and
+have the script read it from the environment.
+A cloudflared access tcp listener is not running when the Bot needs it.
+Listeners do not persist across sessions; start one when needed.
+To choose between them: Tailscale gives the computer network-level reach and,
+with an exit node, egress from your network. Cloudflare Tunnel publishes
+specific services through Cloudflare's edge behind Access: per-service rather
+than whole-network, and the egress addresses that other services see do not
+change.
+Other clients that install and run on Debian-based Linux follow the same Team
+Setup steps; validate yours on a pilot computer before rolling out.
+Roll out to existing computers 
+New computers apply manifests when they start.
+Running computers pick up manifest changes on a periodic refresh, roughly
+daily.
+To apply a manifest change immediately, recreate the computer or have the
+member reset it from the desktop app. On Enterprise, admins can recreate or
+terminate a member's computer from the dashboard. The durable disk is kept,
+and the next computer applies current manifests when it starts.
+Image updates recreate computers automatically, and your scripts re-apply.
+Sign-in sessions, including your network client's login, may need to be
+re-established after a computer is recreated.
+Work with the network policy 
+The Grok Bot network policy is a separate
+layer that controls which destinations team computers may reach.
+If your team uses Team allowlist only , add the destinations your networking
+client needs, such as coordination servers, relays, and gateways, from your
+vendor's documentation. Running computers apply policy changes within about a
+minute. Sleeping computers apply them when they next wake. You do not need to
+recreate the computer.
+Limitations 
+This is a pattern you operate, not a Cursor-managed network mode. Cursor
+does not install, operate, or monitor your networking client, and support for
+the client itself comes from your vendor.
+Regular internet traffic still egresses through Cursor's shared static IP
+ranges unless you route it through your own network. Dedicated per-customer
+egress IPs are not available.
+There is no fleet view of script results today. Verify a pilot computer before
+rolling out team-wide.
+This is not the Cloud Agents setup. The Cloud Agents docs have their own
+Tailscale and
+Cloudflare Tunnel 
+recipes for a different product surface; Grok Bot computers are configured
+through Team Setup as described here. If Grok Bot delegates work to Cloud
+Agents, those agents run under Cloud Agent network settings, not your
+computer's network client.
+FAQ 
+Can I put an auth key or credential in the setup script? 
+Not in the script text. Manifests are plain text, and the dashboard warns
+against pasting secrets into them. Store the credential as a
+Team Secret on the Grok Bot page
+and have the script read it as an environment variable. Team Secrets are
+Enterprise only. Where your vendor supports it, interactive browser login is
+still the simplest option, since your identity provider's policies apply to it.
+Which networking tools can I use? 
+Any client your team can install and run on Debian-based Linux from a shell
+script. Tailscale and Cloudflare Tunnel are the worked examples on this page.
+Validate your client on a pilot computer first.
+Do existing computers get a new manifest? 
+Yes. Running computers refresh manifests periodically, roughly daily. To apply
+a manifest change immediately, recreate the computer or have the member reset
+it from the desktop app.
+Does this change the IP addresses my services see? 
+For traffic routed through your network, yes. Traffic to your private network
+arrives from inside your network, via your exit node, gateway, or tunnel
+connector. Everything else continues to egress from Cursor's shared static
+ranges.
+We use a strict network allowlist. Will our client work? 
+Only if you allow its endpoints. Add the destinations your client requires to
+your team allowlist. Running computers apply the change within about a minute.
+Sleeping computers apply it when they next wake.
+Is this the same as the Tailscale and Cloudflare Tunnel sections in the Cloud Agents docs? 
+No. Those recipes are specific to Cloud Agent VMs; Tailscale there requires
+userspace networking and proxy variables. Grok Bot computers use Team Setup and
+your own gateway or connector, as described on this page.
+Which plans include Team Setup Scripts? 
+Team Setup Scripts is Enterprise only. Team admins manage manifests. If you do not
+see it on the Grok Bot page of the dashboard, you are not on Enterprise, or you
+need your account team to enable Grok Bot for the organization.
+What happens if the setup script fails on some computers? 
+The computer still starts. Failed entries are retried on a later refresh. Keep
+scripts re-runnable and use a Check Script so healthy computers skip the
+install.
+Related pages 
+Grok Bot for teams and enterprises 
+Grok Bot security 
+Configure identity and access 
+Configure TLS-inspecting proxies , for the path from
+member devices to Cursor
+Cloud Agents: Running Tailscale 
+and Running Cloudflare Tunnel 
+
+Last updated: October 29, 2026
+
+On this page What you can do 
+Choose a connection method 
+Route through a member's desktop 
+Install a networking client with Team Setup 
+Before you start 
+How Team Setup runs your scripts 
+Create the manifest 
+Set up your networking client 
+Tailscale 
+Cloudflare Tunnel 
+Roll out to existing computers 
+Work with the network policy 
+Limitations 
+FAQ 
+Can I put an auth key or credential in the setup script? 
+Which networking tools can I use? 
+Do existing computers get a new manifest? 
+Does this change the IP addresses my services see? 
+We use a strict network allowlist. Will our client work? 
+Is this the same as the Tailscale and Cloudflare Tunnel sections in the Cloud Agents docs? 
+Which plans include Team Setup Scripts? 
+What happens if the setup script fails on some computers? 
+Related pages 
+
+Copy for LLM Copying... Copied Copy failed 
+
+Grok Docs Translated from the official docs, updated quickly, and aligned with the official experience
+
+Docs
+Overview 
+Quickstart 
+Models 
+Pricing 
+
+About
+About this site 
+Contact us 
+Privacy policy 
+Disclaimer 
+
+Official
+Official docs 
+xAI 
+API Console 
+Status 
+
+self.__next_f.push([1,"5b:I[52947,[\"/_next/static/immutable/chunks/3h4aui7qr9eou.js\",\"/_next/static/immutable/chunks/1id416u-3wq2e.js\",\"/_next/static/immutable/chunks/0ajl8x4sldp4s.js\",\"/_next/static/immutable/chunks/03mtqh57q8jrf.js\",\"/_next/static/immutable/chunks/0l81av73645ji.js\"],\"CodeBlock\"]\n19:[\"$\",\"li\",\"doc-2-3\",{\"children\":[\"Keep control on your side: your network, your access rules, and your identity\\nprovider. You can revoke a computer from your own admin console at any time.\"]}]\n1a:[\"$\",\"h2\",\"doc-3\",{\"id\":\"choose-a-connection-method\",\"children\":[\"$\",\"a\",null,{\"href\":\"#choose-a-connection-method\",\"children\":[\"Choose a connection method\"]}]}]\n1b:[\"$\",\"div\",\"doc-4\",{\"className\":\"table-wrap\",\"data-wide-table\":\"$undefined\",\"children\":[\"$\",\"table\",null,{\"children\":[[\"$\",\"thead\",null,{\"children\":[\"$\",\"tr\",null,{\"children\":[[\"$\",\"th\",\"doc-4-head-0\",{\"children\":[\"Method\"]}],[\"$\",\"th\",\"doc-4-head-1\",{\"children\":[\"Use it when\"]}]]}]}],[\"$\",\"tbody\",null,{\"children\":[[\"$\",\"tr\",\"doc-4-row-0\",{\"children\":[[\"$\",\"td\",\"doc-4-cell-0-0\",{\"children\":[\"Route traffic through a desktop\"]}],[\"$\",\"td\",\"doc-4-cell-0-1\",{\"children\":[\"One member needs public sites to see their device's IP address, such as a site that allowlists office IPs\"]}]]}],[\"$\",\"tr\",\"doc-4-row-1\",{\"children\":[[\"$\",\"td\",\"doc-4-cell-1-0\",{\"children\":[\"Install a networking client with Team Setup\"]}],[\"$\",\"td\",\"doc-4-cell-1-1\",{\"children\":[\"Your Enterprise team needs a consistent connection on every hosted computer\"]}]]}]]}]]}]}]\n1c:[\"$\",\"h3\",\"doc-5\",{\"id\":\"route-through-a-members-desktop\",\"children\":[\"$\",\"a\",null,{\"href\":\"#route-through-a-members-desktop\",\"children\":[\"Route through a member's desktop\"]}]}]\n1d:[\"$\",\"p\",\"doc-6\",{\"children\":[\"In the Grok Bot desktop app, open \",[\"$\",\"strong\",\"doc-6-1\",{\"children\":[\"Settings → Computer\"]}],\" and, under \",[\"$\",\"strong\",\"doc-6-3\",{\"children\":[\"Your computer\"]}],\",\\nturn on \",[\"$\",\"strong\",\"doc-6-5\",{\"children\":[\"Route traffic through this computer\"]}],\". The route uses the current device's\\nnetwork and IP address. It stops when the setting is turned off or an Enterprise\\nadmin disables \",[\"$\",\"strong\",\"doc-6-7\",{\"children\":[\"Allow Local Egress Routing\"]}],\".\"]}]\n1e:[\"$\",\"p\",\"doc-7\",{\"children\":[\"The route does not open your private network to the Bot. Sites that resolve to\\na private or VPN address are blocked unless they have been allowed for your\\norganization, and the setting shows how many sites were blocked this session.\\nTo reach private services,\\n\",[\"$\",\"$L11\",\"doc-7-1\",{\"href\":\"#install-a-networking-client-with-team-setup\",\"children\":[\"install a networking client with Team Setup\"]}],\".\"]}]\n1f:[\"$\",\"p\",\"doc-8\",{\"children\":[\"Each member controls their own desktop route. Enterprise admins can remove this\\noption for the whole team from\\n\",[\"$\",\"a\",\"doc-8-1\",{\"href\":\"https://cursor.com/dashboard/bot\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"children\":[\"Grok Bot in the Cursor dashboard\"]}],\". See\\n\",[\"$\",\"$L11\",\"doc-8-3\",{\"href\":\"/en/grok-bot/settings-and-notifications#route-traffic-through-your-desktop\",\"children\":[\"Route traffic through your desktop\"]}],\".\"]}]\n20:[\"$\",\"h3\",\"doc-9\",{\"id\":\"install-a-networking-client-with-team-setup\",\"children\":[\"$\",\"a\",null,{\"href\":\"#install-a-networking-client-with-team-setup\",\"children\":[\"Install a networking client with Team Setup\"]}]}]\n21:[\"$\",\"p\",\"doc-10\",{\"children\":[\"This is a pattern you run, not a Cursor-managed network mode. Cursor provides\\nthe hook: Team Setup Scripts runs your install scripts on every team computer. You own\\nthe rest: installing the client, configuring it, authenticating computers,\\nmaintaining access rules, and keeping up with your vendor's changes. Cursor\\ninstalls nothing by default, does not operate or monitor your network client, and\\nthe dashboard shows no client status. Your vendor's documentation is the source\\nof truth for installing and configuring their software; this page covers the\\nCursor side.\"]}]\n22:[\"$\",\"h2\",\"doc-11\",{\"id\":\"before-you-start\",\"children\":[\"$\",\"a\",null,{\"href\":\"#before-you-start\",\"children\":[\"Before you start\"]}]}]\n23:[\"$\",\"ul\",\"doc-12\",{\"start\":\"$undefined\",\"children\":[[\"$\",\"li\",\"doc-12-0\",{\"children\":[\"You are a team admin on the Enterprise plan. \",[\"$\",\"strong\",\"doc-12-0-1\",{\"children\":[\"Team Setup Scripts is\\nEnterprise only\"]}],\" and does not appear on other plans.\"]}],[\"$\",\"li\",\"doc-12-1\",{\"children\":[\"Your networking client runs on Debian-based Linux and can be installed and\\nstarted from a shell script. Team computers run Linux, and scripts run as the\\ncomputer user with \",[\"$\",\"code\",\"doc-12-1-1\",{\"children\":\"sudo\"}],\" available.\"]}],[\"$\",\"li\",\"doc-12-2\",{\"children\":[\"Your network has a way in for that client: a gateway, exit node, or tunnel\\nconnector inside the VPC or intranet you want to reach, per your vendor's\\narchitecture.\"]}],[\"$\",\"li\",\"doc-12-3\",{\"children\":[\"You have decided how computers will authenticate to your network. Keep\\ncredentials out of setup scripts; if a script needs one, store it as a\\n\",[\"$\",\"$L11\",\"doc-12-3-1\",{\"href\":\"/en/grok-bot/teams-and-enterprises#team-secrets\",\"children\":[\"Team Secret\"]}],\".\"]}]]}]\n24:[\"$\",\"h2\",\"doc-13\",{\"id\":\"how-team-setup-runs-your-scripts\",\"children\":[\"$\",\"a\",null,{\"href\":\"#how-team-setup-runs-your-scripts\",\"children\":[\"How Team Setup runs your scripts\"]}]}]\n25:[\"$\",\"p\",\"doc-14\",{\"children\":[[\"$\",\"strong\",\"doc-14-0\",{\"children\":[\"Team Setup Scripts\"]}],\" lives under \",[\"$\",\"strong\",\"doc-14-2\",{\"children\":[\"Bot Computers\"]}],\" on the \",[\"$\",\"strong\",\"doc-14-4\",{\"children\":[\"Grok Bot\"]}],\" page of\\nthe \",[\"$\",\"a\",\"doc-14-6\",{\"href\":\"https://cursor.com/dashboard/bot\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"children\":[\"Cursor dashboard\"]}],\": manifests of install\\nscripts that run on every team computer. Each manifest holds one or more script\\nentries, and each entry has an \",[\"$\",\"strong\",\"doc-14-8\",{\"children\":[\"ID\"]}],\", a \",[\"$\",\"strong\",\"doc-14-10\",{\"children\":[\"Setup Script\"]}],\", and an optional\\n\",[\"$\",\"strong\",\"doc-14-12\",{\"children\":[\"Check Script\"]}],\". To run a manifest on one cohort's computers only, add it under\\nthe group's Grok Bot tab instead; see\\n\",[\"$\",\"$L11\",\"doc-14-14\",{\"href\":\"/en/grok-bot/teams-and-enterprises#group-settings\",\"children\":[\"Group settings\"]}],\". Group\\nmanifests follow the same rules as the ones below.\"]}]\n26:[\"$\",\"ul\",\"doc-15\",{\"start\":\"$undefined\",\"children\":[[\"$\",\"li\",\"doc-15-0\",{\"children\":[\"Scripts run as the computer user on every team computer; use \",[\"$\",\"code\",\"doc-15-0-1\",{\"children\":\"sudo\"}],\" for\\nprivileged installs.\"]}],[\"$\",\"li\",\"doc-15-1\",{\"children\":[\"They run when a computer starts, and on a periodic refresh, roughly daily,\\nwhile it runs.\"]}],[\"$\",\"li\",\"doc-15-2\",{\"children\":[\"If a Check Script is present and exits 0, the Setup Script is skipped; use it\\nto avoid reinstalling on every pass. After a setup runs, the check runs again\\nto verify it succeeded.\"]}],[\"$\",\"li\",\"doc-15-3\",{\"children\":[\"Entries run one at a time, in order. Each script has a 30-minute timeout. A\\nfailed script does not block the computer; it is retried on a later refresh.\"]}],[\"$\",\"li\",\"doc-15-4\",{\"children\":[\"Scripts read your team's\\n\",[\"$\",\"$L11\",\"doc-15-4-1\",{\"href\":\"/en/grok-bot/teams-and-enterprises#team-secrets\",\"children\":[\"Team Secrets\"]}],\" as environment\\nvariables, so a credential a script needs never appears in the manifest.\\nSecrets are present only while the script runs, and script output is redacted\\nbefore it is logged. A computer whose setup comes from more than one team\\nreceives no secrets.\"]}]]}]\n27:[\"$\",\"h2\",\"doc-16\",{\"id\":\"create-the-manifest\",\"children\":[\"$\",\"a\",null,{\"href\":\"#create-the-manifest\",\"children\":[\"Create the manifest\"]}]}]\n28:[\"$\",\"ol\",\"doc-17\",{\"start\":1,\"children\":[[\"$\",\"li\",\"doc-17-0\",{\"children\":[\"Go to \",[\"$\",\"a\",\"doc-17-0-1\",{\"href\":\"https://cursor.com/dashboard/bot\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"children\":[\"Grok Bot in the Cursor dashboard\"]}],\"\\nand find \",[\"$\",\"strong\",\"doc-17-0-3\",{\"children\":[\"Team Setup Scripts\"]}],\" under \",[\"$\",\"strong\",\"doc-17-0-5\",{\"children\":[\"Bot Computers\"]}],\".\"]}],[\"$\",\"li\",\"doc-17-1\",{\"children\":[\"Next to \",[\"$\",\"strong\",\"doc-17-1-1\",{\"children\":[\"Manifests\"]}],\", select \",[\"$\",\"strong\",\"doc-17-1-3\",{\"children\":[\"+\"]}],\" to create a \",[\"$\",\"strong\",\"doc-17-1-5\",{\"children\":[\"New Manifest\"]}],\", then enter\\na \",[\"$\",\"strong\",\"doc-17-1-7\",{\"children\":[\"Manifest ID\"]}],\", for example \",[\"$\",\"code\",\"doc-17-1-9\",{\"children\":\"private-network\"}],\".\"]}],[\"$\",\"li\",\"doc-17-2\",{\"children\":[\"In the script entry, set the \",[\"$\",\"strong\",\"doc-17-2-1\",{\"children\":[\"ID\"]}],\" (for example \",[\"$\",\"code\",\"doc-17-2-3\",{\"children\":\"install-network-client\"}],\")\\nand write the \",[\"$\",\"strong\",\"doc-17-2-5\",{\"children\":[\"Setup Script\"]}],\": install your client following your\\nprovider's Linux install documentation, then start it and connect it to your\\nnetwork the way your configuration prescribes.\"]}],[\"$\",\"li\",\"doc-17-3\",{\"children\":[\"Optionally add a \",[\"$\",\"strong\",\"doc-17-3-1\",{\"children\":[\"Check Script\"]}],\" (for example \",[\"$\",\"code\",\"doc-17-3-3\",{\"children\":\"command -v \u003cyour-client\u003e\"}],\"),\\nso computers that already have the client skip the install.\"]}],[\"$\",\"li\",\"doc-17-4\",{\"children\":[\"Select \",[\"$\",\"strong\",\"doc-17-4-1\",{\"children\":[\"Save\"]}],\".\"]}]]}]\n29:[\"$\",\"p\",\"doc-18\",{\"children\":[\"If you prefer editing JSON, toggle from \",[\"$\",\"strong\",\"doc-18-1\",{\"children\":[\"Form\"]}],\" to \",[\"$\",\"strong\",\"doc-18-3\",{\"children\":[\"JSON\"]}],\" at the top of the\\neditor. The manifest has this structure:\"]}]\n5c:T942,\u003cpre class=\"shiki shiki-themes github-light github-dark\" style=\"background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8\" tabindex=\"0\"\u003e\u003ccode\u003e\u003cspan class=\"line\"\u003e\u003cspan style=\"color:#24292E;--shiki-dark:#E1E4E8\"\u003e{\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"line\"\u003e\u003cspan style=\"color:#005CC5;--shiki-dark:#79B8FF\"\u003e \"manifestId\"\u003c/span\u003e\u003cspan style=\"color:#24292E;--shiki-dark:#E1E4E8\"\u003e: \u003c/span\u003e\u003cspan style=\"color:#032F62;--shiki-dark:#9ECBFF\"\u003e\"private-network\"\u003c/span\u003e\u003cspan style=\"color:#24292E;--shiki-dark:#E1E4E8\"\u003e,\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"line\"\u003e\u003cspan style=\"color:#005CC5;--shiki-dark:#79B8FF\"\u003e \"entries\"\u003c/span\u003e\u003cspan style=\"color:#24292E;--shiki-dark:#E1E4E8\"\u003e: [\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"line\"\u003e\u003cspan style=\"color:#24292E;--shiki-dark:#E1E4E8\"\u003e {\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"line\"\u003e\u003cspan style=\"color:#005CC5;--shiki-dark:#79B8FF\"\u003e \"id\"\u003c/span\u003e\u003cspan style=\"color:#24292E;--shiki-dark:#E1E4E8\"\u003e: \u003c/span\u003e\u003cspan style=\"color:#032F62;--shiki-dark:#9ECBFF\"\u003e\"install-network-client\"\u003c/span\u003e\u003cspan style=\"color:#24292E;--shiki-dark:#E1E4E8\"\u003e,\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"line\"\u003e\u003cspan style=\"color:#005CC5;--shiki-dark:#79B8FF\"\u003e \"setup\"\u003c/span\u003e\u003cspan style=\"color:#24292E;--shiki-dark:#E1E4E8\"\u003e: \u003c/span\u003e\u003cspan style=\"color:#032F62;--shiki-dark:#9ECBFF\"\u003e\"#!/usr/bin/env bash\u003c/span\u003e\u003cspan style=\"color:#005CC5;--shiki-dark:#79B8FF\"\u003e\\n\u003c/span\u003e\u003cspan style=\"color:#032F62;--shiki-dark:#9ECBFF\"\u003eset -euo pipefail\u003c/span\u003e\u003cspan style=\"color:#005CC5;--shiki-dark:#79B8FF\"\u003e\\n\u003c/span\u003e\u003cspan style=\"color:#032F62;--shiki-dark:#9ECBFF\"\u003e# 1) Install your networking client per your provider's Linux install docs\u003c/span\u003e\u003cspan style=\"color:#005CC5;--shiki-dark:#79B8FF\"\u003e\\n\u003c/span\u003e\u003cspan style=\"color:#032F62;--shiki-dark:#9ECBFF\"\u003e# 2) Start the client and connect it to your network per your configuration\"\u003c/span\u003e\u003cspan style=\"color:#24292E;--shiki-dark:#E1E4E8\"\u003e,\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"line\"\u003e\u003cspan style=\"color:#005CC5;--shiki-dark:#79B8FF\"\u003e \"check\"\u003c/span\u003e\u003cspan style=\"color:#24292E;--shiki-dark:#E1E4E8\"\u003e: \u003c/span\u003e\u003cspan style=\"color:#032F62;--shiki-dark:#9ECBFF\"\u003e\"command -v \u0026#x3C;your-client\u003e\"\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"line\"\u003e\u003cspan style=\"color:#24292E;--shiki-dark:#E1E4E8\"\u003e }\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"line\"\u003e\u003cspan style=\"color:#24292E;--shiki-dark:#E1E4E8\"\u003e ]\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"line\"\u003e\u003cspan style=\"color:#24292E;--shiki-dark:#E1E4E8\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e2a:[\"$\",\"$L5b\",\"doc-19\",{\"options\":[{\"label\":\"JSON\",\"code\":\"{\\n \\\"manifestId\\\": \\\"private-network\\\",\\n \\\"entries\\\": [\\n {\\n \\\"id\\\": \\\"install-network-client\\\",\\n \\\"setup\\\": \\\"#!/usr/bin/env bash\\\\nset -euo pipefail\\\\n# 1) Install your networking client per your provider's Linux install docs\\\\n# 2) Start the client and connect it to your network per your configuration\\\",\\n \\\"check\\\": \\\"command -v \u003cyour-client\u003e\\\"\\n }\\n ]\\n}\",\"highlightedHtml\":\"$5c\"}]}]\n2b:[\"$\",\"blockquote\",\"doc-20\",{\"children\":[[\"$\",\"p\",\"doc-20-0\",{\"children\":[\"Do not paste secret values into scripts. Setup scripts run as the computer\\nuser on every team computer, and manifests are plain text applied to your\\nwhole fleet. If a script needs an auth key, token, or other credential, store\\nit as a \",[\"$\",\"$L11\",\"doc-20-0-1\",{\"href\":\"/en/grok-bot/teams-and-enterprises#team-secrets\",\"children\":[\"Team Secret\"]}],\" and read\\nit from the environment, for example \",[\"$\",\"code\",\"doc-20-0-3\",{\"children\":\"\\\"$MY_AUTH_KEY\\\"\"}],\". Where your vendor\\nsupports it, prefer having members authenticate interactively in the\\ncomputer's browser, where your identity provider's policies apply.\"]}]]}]\n2c:[\"$\",\"h2\",\"doc-21\",{\"id\":\"set-up-your-networking-client\",\"children\":[\"$\",\"a\",null,{\"href\":\"#set-up-your-networking-client\",\"children\":[\"Set up your networking client\"]}]}]\n2d:[\"$\",\"p\",\"doc-22\",{\"children\":[\"Whatever tool you use, the last mile is the same: each computer authenticates to\\nyour network, you confirm the connection in your vendor's console, and you\\nverify by asking a Bot to reach an internal hostname it could not reach before.\\nInteractive login happens in the computer's browser, the same way members\\nalready \",[\"$\",\"$L11\",\"doc-22-1\",{\"href\":\"/en/grok-bot/identity-and-access\",\"children\":[\"sign in to company tools there\"]}],\". Start\\nwith one or two pilot computers before rolling out team-wide.\"]}]\n2e:[\"$\",\"h3\",\"doc-23\",{\"id\":\"tailscale\",\"children\":[\"$\",\"a\",null,{\"href\":\"#tailscale\",\"children\":[\"Tailscale\"]}]}]\n2f:[\"$\",\"p\",\"doc-24\",{\"children\":[\"Run Tailscale on each computer and route through an\\n\",[\"$\",\"a\",\"doc-24-1\",{\"href\":\"https://tailscale.com/docs/features/exit-nodes\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"children\":[\"exit node\"]}],\" inside your network.\\nThis is the configuration the pattern has been exercised with. Tailscale also\\noffers \",[\"$\",\"a\",\"doc-24-3\",{\"href\":\"https://tailscale.com/docs/features/subnet-routers\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"children\":[\"subnet routers\"]}],\" for\\nexposing specific private ranges; validate that arrangement on a pilot computer\\nbefore relying on it.\"]}]\n30:[\"$\",\"p\",\"doc-25\",{\"children\":[[\"$\",\"strong\",\"doc-25-0\",{\"children\":[\"Before you start:\"]}],\" you operate a tailnet with an exit node inside the VPC or\\nintranet you want to reach.\"]}]\n31:[\"$\",\"p\",\"doc-26\",{\"children\":[[\"$\",\"strong\",\"doc-26-0\",{\"children\":[\"Team Setup manifest:\"]}]]}]\n32:[\"$\",\"ul\",\"doc-27\",{\"start\":\"$undefined\",\"children\":[[\"$\",\"li\",\"doc-27-0\",{\"children\":[[\"$\",\"strong\",\"doc-27-0-0\",{\"children\":[\"Setup Script:\"]}],\" install Tailscale for Linux following\\n\",[\"$\",\"a\",\"doc-27-0-2\",{\"href\":\"https://tailscale.com/docs/install/linux\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"children\":[\"Tailscale's install documentation\"]}],\",\\nthen bring the computer onto your tailnet per your configuration.\"]}],[\"$\",\"li\",\"doc-27-1\",{\"children\":[[\"$\",\"strong\",\"doc-27-1-0\",{\"children\":[\"Check Script:\"]}],\" \",[\"$\",\"code\",\"doc-27-1-2\",{\"children\":\"command -v tailscale\"}],\".\"]}]]}]\n33:[\"$\",\"p\",\"doc-28\",{\"children\":[[\"$\",\"strong\",\"doc-28-0\",{\"children\":[\"Connect and verify:\"]}]]}]\n34:[\"$\",\"ol\",\"doc-29\",{\"start\":1,\"children\":[[\"$\",\"li\",\"doc-29-0\",{\"children\":[\"Authenticate each computer. Tailscale prints a login URL that opens in the\\ncomputer's browser, where your identity provider's policies apply. If you\\nwould rather join computers without a member signing in, store a reusable,\\ntagged \",[\"$\",\"a\",\"doc-29-0-1\",{\"href\":\"https://tailscale.com/docs/concepts/auth-keys\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"children\":[\"auth key\"]}],\" as a\\n\",[\"$\",\"$L11\",\"doc-29-0-3\",{\"href\":\"/en/grok-bot/teams-and-enterprises#team-secrets\",\"children\":[\"Team Secret\"]}],\" and pass it from\\nthe environment, for example \",[\"$\",\"code\",\"doc-29-0-5\",{\"children\":\"tailscale up --auth-key \\\"$TS_AUTHKEY\\\"\"}],\". Every\\nteam computer then joins under the same key and tags rather than under the\\nmember's identity, so scope the key's ACLs accordingly. Never paste the key\\ninto the script itself.\"]}],[\"$\",\"li\",\"doc-29-1\",{\"children\":[\"Confirm the computer appears in your Tailscale admin console and is allowed\\nto use the exit node.\"]}],[\"$\",\"li\",\"doc-29-2\",{\"children\":[\"Ask a Bot to reach an internal hostname.\"]}]]}]\n35:[\"$\",\"p\",\"doc-30\",{\"children\":[[\"$\",\"strong\",\"doc-30-0\",{\"children\":[\"If it does not work:\"]}]]}]\n36:[\"$\",\"ul\",\"doc-31\",{\"start\":\"$undefined\",\"children\":[[\"$\",\"li\",\"doc-31-0\",{\"children\":[\"The client installed but nobody authenticated. With browser login, the step\\nis manual; with an auth key, check that the Team Secret exists, that its name\\nmatches what the script reads, and that the key has not expired. Check the\\nmachine list in your Tailscale admin console.\"]}],[\"$\",\"li\",\"doc-31-1\",{\"children\":[\"Your team's network policy is allowlist-only and blocks Tailscale's\\ncoordination servers or relays. Allow the endpoints from Tailscale's docs.\\nRunning computers apply the change within about a minute. Sleeping computers\\napply it when they next wake.\"]}],[\"$\",\"li\",\"doc-31-2\",{\"children\":[\"The exit node is not advertised or approved in your tailnet. Check route\\nsettings in the admin console.\"]}],[\"$\",\"li\",\"doc-31-3\",{\"children\":[\"The computer was recreated, for example after an image update or reset, and\\nthe session did not survive. Authenticate again.\"]}]]}]\n37:[\"$\",\"h3\",\"doc-32\",{\"id\":\"cloudflare-tunnel\",\"children\":[\"$\",\"a\",null,{\"href\":\"#cloudflare-tunnel\",\"children\":[\"Cloudflare Tunnel\"]}]}]\n38:[\"$\",\"p\",\"doc-33\",{\"children\":[\"The same Team Setup mechanics work for\\n\",[\"$\",\"a\",\"doc-33-1\",{\"href\":\"https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"children\":[\"Cloudflare Tunnel\"]}],\":\\na \",[\"$\",\"code\",\"doc-33-3\",{\"children\":\"cloudflared\"}],\" connector inside your network publishes private services through\\nCloudflare's edge, protected by Cloudflare Access, and the computer reaches them\\nby hostname. This arrangement has not been exercised on team computers the way\\nthe Tailscale one has, so validate it on a pilot computer before rolling out.\"]}]\n39:[\"$\",\"p\",\"doc-34\",{\"children\":[[\"$\",\"strong\",\"doc-34-0\",{\"children\":[\"Before you start:\"]}],\" you run a Cloudflare Tunnel connector inside your private\\nnetwork, with the services you need routed through it, and you have chosen your\\nCloudflare Access policy. Identity-based policies fit this pattern well, since\\nmembers sign in through the browser. Access service tokens are secrets; if you\\nuse them, store them as\\n\",[\"$\",\"$L11\",\"doc-34-2\",{\"href\":\"/en/grok-bot/teams-and-enterprises#team-secrets\",\"children\":[\"Team Secrets\"]}],\" rather than in\\nsetup scripts.\"]}]\n3a:[\"$\",\"p\",\"doc-35\",{\"children\":[[\"$\",\"strong\",\"doc-35-0\",{\"children\":[\"Team Setup manifest:\"]}]]}]\n3b:[\"$\",\"ul\",\"doc-36\",{\"start\":\"$undefined\",\"children\":[[\"$\",\"li\",\"doc-36-0\",{\"children\":[[\"$\",\"strong\",\"doc-36-0-0\",{\"children\":[\"Setup Script:\"]}],\" install \",[\"$\",\"code\
